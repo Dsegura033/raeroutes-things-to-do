@@ -173,6 +173,18 @@ nav a:hover {
     border-radius: 8px;
     font-weight: 600;
 }
+    /* FLOATING SPARKLE FOR QR CODE */
+.emoji-sparkle-qr {
+    animation: floatSparkleQR 3s infinite;
+}
+
+@keyframes floatSparkleQR {
+    0% {transform: translateY(0px) rotate(0deg);}
+    25% {transform: translateY(-4px) rotate(2deg);}
+    50% {transform: translateY(0px) rotate(0deg);}
+    75% {transform: translateY(-3px) rotate(-2deg);}
+    100% {transform: translateY(0px) rotate(0deg);}
+}
 
 /* ===== MOBILE + DESKTOP ===== */
 @media (min-width: 860px) { .category-scroll { justify-content: center; } }
@@ -187,11 +199,11 @@ nav a:hover {
 
 <header>
     <div style="display:flex; align-items:center;">
-        <img src="logo.png" alt="RaeRoutes Logo">
+        <img src="IMG_7560.jpg" alt="RaeRoutes Logo">
         <h1>RaeRoutes</h1>
     </div>
     <nav>
-        <a href="#categories">Something for Everyone</a>
+        <a href="#categories">February's Something for Everyone</a>
         <a href="#spotlight">Spotlight of the Month</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -377,8 +389,12 @@ nav a:hover {
 <!-- CONTACT SECTION -->
 <div id="contact" class="contact">
     <h3>Get in Touch with RaeRoutes</h3>
-    <p>Have questions or don’t see what you’re looking for? Send us a message!</p>
-    <a href="mailto:hello@raeroutes.com">Contact Us</a>
+    <p>Have questions or don’t see what you’re looking for? Send us a message or scan the QR code below!</p>
+    <a href="mailto:raeroutes13@gmail.com">raeroutes13@gmail.com</a>
+    <div style="margin-top: 16px; position: relative; display: inline-block;">
+        <img src="qr-code.png" alt="RaeRoutes QR Code" class="emoji-sparkle-qr" style="width:150px; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+        <span class="emoji-sparkle" style="position:absolute; top:-8px; right:-8px; font-size:24px;">✨</span>
+    </div>
 </div>
 
 <script>

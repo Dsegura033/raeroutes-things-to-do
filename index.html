@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something For Everyone! | RaeRoutes</title>
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #FDEDF4; /* soft valentine pink */
+    color: #2A2A2A;
+    overflow-x: hidden;
+    --accent: #E66AB1;
+    --accent2: #DBA6E4;
+    --overlay-bg: rgba(0,0,0,0.4);
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+}
+header img {
+    height: 40px;
+    margin-right: 12px;
+}
+header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ===== NAV ===== */
+nav {
+    display: flex;
+    gap: 12px;
+}
+nav a {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    transition: background .2s;
+}
+nav a:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* ===== SUBTITLE ===== */
+.subtitle {
+    text-align: center;
+    font-size: 16px;
+    opacity: .8;
+    margin: 12px 0 24px;
+}
+
+/* ===== CATEGORY CARDS ===== */
+.category-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 0 18px 20px;
+    scroll-snap-type: x mandatory;
+}
+.card {
+    min-width: 270px;
+    max-width: 270px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    padding: 16px;
+    color: white;
+    scroll-snap-align: start;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.15);
+    transition: transform .2s;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+}
+.card:hover { transform: translateY(-3px); }
+
+/* ===== OVERLAY PANELS ===== */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+.overlay-content {
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    overflow-y: auto;
+    color: white;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0,0,0,.2);
+    font-size: 14px;
+}
+.overlay-content h3 { margin-top: 0; }
+.overlay-content h4 { margin: 10px 0 6px; font-size: 15px; }
+.overlay-content .city { margin-left: 12px; font-size: 13px; opacity: .9; }
+
+/* ===== CLOSE BUTTON ===== */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ===== CTA BUTTON ===== */
+.cta-btn {
+    display: inline-block;
+    background: #FF8AD1;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 12px;
+}
+
+/* ===== NOTE ===== */
+.note {
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 14px;
+    opacity: .7;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+    margin: 40px 20px 60px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    border-radius: 14px;
+    color: white;
+    text-align: center;
+}
+.contact h3 { margin-bottom: 12px; }
+.contact a {
+    display: inline-block;
+    margin-top: 10px;
+    background: white;
+    color: var(--accent);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+    /* FLOATING SPARKLE FOR QR CODE */
+.emoji-sparkle-qr {
+    animation: floatSparkleQR 3s infinite;
+}
+
+@keyframes floatSparkleQR {
+    0% {transform: translateY(0px) rotate(0deg);}
+    25% {transform: translateY(-4px) rotate(2deg);}
+    50% {transform: translateY(0px) rotate(0deg);}
+    75% {transform: translateY(-3px) rotate(-2deg);}
+    100% {transform: translateY(0px) rotate(0deg);}
+}
+
+/* ===== MOBILE + DESKTOP ===== */
+@media (min-width: 860px) { .category-scroll { justify-content: center; } }
+
+/* ===== SIMPLE SCRAPBOOK ANIMATION ===== */
+.emoji-sparkle { animation: floatSparkle 3s infinite; display: inline-block; }
+@keyframes floatSparkle { 0% {transform: translateY(0px);} 50% {transform: translateY(-5px);} 100% {transform: translateY(0px);} }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div style="display:flex; align-items:center;">
+        <img src="" alt="RaeRoutes Logo">
+        <h1>RaeRoutes</h1>
+    </div>
+    <nav>
+        <a href="#categories">February's Something for Everyone</a>
+        <a href="#spotlight">Spotlight of the Month</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="subtitle">Romantic • Cozy • Fun • Nightlife • Festivals • Getaways</div>
+
+<!-- CATEGORY CARDS -->
+<div id="categories" class="category-scroll">
+    <div class="card" onclick="openOverlay('nightlife')">🎉 Weekend & Nightlife</div>
+    <div class="card" onclick="openOverlay('sports')">🏈 Sports & Action</div>
+    <div class="card" onclick="openOverlay('shows')">🎭 Shows & Entertainment</div>
+    <div class="card" onclick="openOverlay('festivals')">🎉 Festivals & Seasonal Fun</div>
+    <div class="card" onclick="openOverlay('getaways')">🏔️ Getaways & Experiences</div>
+    <div class="card" onclick="openOverlay('music')">🎶 Music: Headliners & Tours</div>
+    <div class="card" onclick="openOverlay('jazz')">🎷 Jazz & Chill Nights</div>
+    <div class="card" onclick="openOverlay('food')">🍴 Tours & Foodies</div>
+</div>
+
+<!-- ===== OVERLAY PANELS ===== -->
+
+<!-- NIGHTLIFE -->
+<div id="nightlife" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🎉 Weekend & Nightlife <span class="emoji-sparkle">✨</span></h3>
+        <p>Rooftops • Speakeasies • DJ nights • Comedy clubs • Lounges</p>
+        <h4>Rooftop Bars & Lounges</h4>
+        <div class="city">• Miami, FL: ocean view DJ nights</div>
+        <div class="city">• Chicago, IL:  jazz & skyline cocktails</div>
+        <h4>Speakeasies & Hidden Bars</h4>
+        <div class="city">• NYC, NY:  cocktails behind bookcases</div>
+        <div class="city">• LA, CA: Hollywood hidden lounges</div>
+        <h4>Raves & EDM Nights</h4>
+        <div class="city">• Denver, CO: RiNo warehouse sets</div>
+        <div class="city">• Austin, TX:  pop up techno events</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• Philadelphia, PA: late night jazz bars</div>
+        <div class="city">• Detroit, MI: techno & rap lounges</div>
+        <div class="city">• Atlanta, GA: hip-hop nightlife & lounges</div>
+        <a class="cta-btn">Browse Nightlife</a>
+    </div>
+</div>
+
+<!-- SPORTS -->
+<div id="sports" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🏈 Sports & Action <span class="emoji-sparkle">⚡</span></h3>
+        <p>Stadium energy • Winter sports • Adventure • UFC</p>
+        <h4>Major League Games</h4>
+        <div class="city">• Denver, CO: Nuggets & Avalanche</div>
+        <div class="city">• Boston, MA: Celtics & Bruins</div>
+        <h4>Winter & Outdoor Sports</h4>
+        <div class="city">• Salt Lake City, UT: skiing & snowboarding</div>
+        <div class="city">• Buffalo, NY: snow tubing + hockey</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• Minneapolis, MN: ice fishing</div>
+        <div class="city">• Phoenix, AZ: desert hiking</div>
+        <div class="city">• Charlotte, NC: minor league basketball</div>
+        <a class="cta-btn">Find Sports</a>
+    </div>
+</div>
+
+<!-- SHOWS -->
+<div id="shows" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🎭 Shows & Entertainment <span class="emoji-sparkle">🎬</span></h3>
+        <p>Theater • Film • Comedy • Immersive experiences</p>
+        <h4>Broadway & Tours</h4>
+        <div class="city">• NYC, NY: Broadway</div>
+        <div class="city">• Boston, MA: Touring shows</div>
+        <h4>Comedy & Improv</h4>
+        <div class="city">• Chicago, IL: Second City</div>
+        <div class="city">• SF, CA: indie comedy</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• Nashville, TN: immersive shows</div>
+        <div class="city">• Las Vegas, NV: dinner theater</div>
+        <a class="cta-btn">See Shows</a>
+    </div>
+</div>
+
+<!-- FESTIVALS -->
+<div id="festivals" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>❄️ Festivals & Seasonal Fun <span class="emoji-sparkle">🎉</span></h3>
+        <p>Pop ups • Light shows • Winter markets • Rodeos</p>
+        <h4>Rodeos & Cultural</h4>
+        <div class="city">• San Antonio, TX: Stock Show & Rodeo</div>
+        <div class="city">• Nashville, TN: folk + arts festivals</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• Seattle, WA: winter light installations</div>
+        <div class="city">• Santa Fe, NM: art & craft festivals</div>
+        <a class="cta-btn">Explore Festivals</a>
+    </div>
+</div>
+
+<!-- GETAWAYS -->
+<div id="getaways" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🏔️ Getaways & Experiences <span class="emoji-sparkle">🏞️</span></h3>
+        <p>Cabins • Beaches • National parks • Scenic trips</p>
+        <h4>Mountain Escapes</h4>
+        <div class="city">• Rocky Mountains, CO: snowshoe + hot springs</div>
+        <div class="city">• White Mountains, NH: cabins + trails</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• Glacier NP, MT:  winter wildlife</div>
+        <div class="city">• Moab, UT: cold weather hiking</div>
+        <a class="cta-btn">Plan Getaway</a>
+    </div>
+</div>
+
+<!-- MUSIC -->
+<div id="music" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🎶 Music: Headliners + Tours <span class="emoji-sparkle">🎤</span></h3>
+        <p>Residencies • Raves • Arena shows • Multi-city tours</p>
+        <h4>Major Headliners (Feb)</h4>
+        <div class="city">• Cardi B:  “Little Miss Drama Tour” Feb 11+</div>
+        <div class="city">• Florence + The Machine — Feb 6+</div>
+        <div class="city">• Kali Uchis:  through Feb 25</div>
+        <div class="city">• Halsey:  through Feb 20</div>
+        <div class="city">• Lady Gaga: Mayhem Ball (multi-city)</div>
+        <div class="city">• Backstreet Boys: Vegas Residency</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• Miami, FL: Latin + EDM</div>
+        <div class="city">• Louisville, KY: indie + folk</div>
+        <div class="city">• Detroit, MI: techno + rap</div>
+        <a class="cta-btn">Browse Music</a>
+    </div>
+</div>
+
+<!-- JAZZ -->
+<div id="jazz" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🎷 Jazz & Chill Nights <span class="emoji-sparkle">🎷</span></h3>
+        <p>Jazz • Classical • Acoustic • Candlelight concerts</p>
+        <h4>Jazz & Blues</h4>
+        <div class="city">• New Orleans, LA:  classic jazz clubs</div>
+        <div class="city">• Chicago, IL:  piano bars + blues</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• NYC, NY:  candlelight classical</div>
+        <div class="city">• Boston, MA: chamber concerts</div>
+        <a class="cta-btn">Find Chill Shows</a>
+    </div>
+</div>
+
+<!-- FOOD -->
+<div id="food" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🍴 Tours & Foodies <span class="emoji-sparkle">🍰</span></h3>
+        <p>Food tours • Breweries • Pop ups • Cooking experiences</p>
+        <h4>City Food Tours</h4>
+        <div class="city">• Chicago, IL:  deep dish + street food</div>
+        <div class="city">• NYC, NY: international cuisine tours</div>
+        <h4>Overflow Cities</h4>
+        <div class="city">• LA, CA: wine tours</div>
+        <div class="city">• Asheville, NC: farm-to-table experiences</div>
+        <a class="cta-btn">Book Food Tours</a>
+    </div>
+</div>
+
+<!-- SPOTLIGHT SECTION -->
+<div id="spotlight" class="overlay">
+    <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">×</span>
+        <h3>🌟 Spotlight of the Month <span class="emoji-sparkle">✨</span></h3>
+        <p>👀 Come back next week for our City Spotlight (US + International)!</p>
+    </div>
+</div>
+
+<!-- NOTE -->
+<div class="note">
+👀 Come back next week for our <strong>City Spotlight</strong>!
+</div>
+
+<!-- CONTACT SECTION -->
+<div id="contact" class="contact">
+    <h3>Get in Touch with RaeRoutes</h3>
+    <p>Have questions or don’t see what you’re looking for? Send us a message or scan the QR code below!</p>
+    <a href="mailto:raeroutes13@gmail.com">raeroutes13@gmail.com</a>
+    <div style="margin-top: 16px; position: relative; display: inline-block;">
+        <img src="" alt="RaeRoutes QR Code" class="emoji-sparkle-qr" style="width:150px; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+        <span class="emoji-sparkle" style="position:absolute; top:-8px; right:-8px; font-size:24px;">✨</span>
+    </div>
+</div>
+
+<script>
+function openOverlay(id){ document.getElementById(id).style.display='flex'; }
+function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.style.display='none'); }
+</script>
+
+</body>
+</html>

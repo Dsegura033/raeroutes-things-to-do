@@ -592,6 +592,32 @@ img {
 /* SIMPLE SCRAPBOOK ANIMATION */
 .emoji-sparkle { animation: floatSparkle 3s infinite; display: inline-block; }
 @keyframes floatSparkle { 0% { transform: translateY(0px); } 50% { transform: translateY(-4px); } 100% { transform: translateY(0px); } }
+
+    /* ===== FOOTER STYLING ===== */
+.site-footer {
+    background-color: #fdf4f7; /* soft pinky-beige background */
+    text-align: center;
+    padding: 20px 16px;
+    font-size: 14px;
+    color: #333;
+    border-top: 1px solid #e0d4d8;
+    margin-top: 40px;
+}
+
+.site-footer p {
+    margin: 4px 0;
+    line-height: 1.5;
+}
+
+.site-footer a {
+    color: #c03c8a; /* optional highlight color for partner links */
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
 </style>
 
 </head>
@@ -772,7 +798,7 @@ img {
             Browse Music
         </a>
         <a class="cta-btn secondary" href="https://form.jotform.com/260254006996056" target="_blank">
-            Plan Music
+            Plan Shows
         </a>
     </div>
 </div>
@@ -811,7 +837,7 @@ img {
         <div class="city">• LA, CA: wine tours</div>
         <div class="city">• Asheville, NC: farm-to-table experiences</div>
         <a class="cta-btn primary" href="https://form.jotform.com/260254006996056" target="_blank">
-            Book Food Tours
+            Plan Food Tours
         </a>
         <a class="cta-btn secondary" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
             Browse tours
@@ -841,10 +867,7 @@ img {
 <div class="note">
     👀 Come back next week for our <strong>City Spotlight</strong>!
 </div>
-<!-- NOTE -->
-<div class="note">
-👀 Come back next week for our <strong>City Spotlight</strong>!
-</div>
+
 
 <!-- CONTACT SECTION -->
 <div id="contact" class="contact">
@@ -856,6 +879,14 @@ img {
         <span class="emoji-sparkle" style="position:absolute; top:-8px; right:-8px; font-size:24px;">✨</span>
     </div>
 </div>
+
+    <!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>✨ Powered by RaeRoutes | In partnership with trusted travel partners ✨</p>
+        <p>© 2026 RaeRoutes. All rights reserved.</p>
+    </div>
+</footer>
 
 <script>
 function openOverlay(id){ document.getElementById(id).style.display='flex'; }

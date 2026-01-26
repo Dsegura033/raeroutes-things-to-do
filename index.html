@@ -67,16 +67,22 @@ nav a:hover {
 /* ===== HERO ===== */
 .hero {
   position: relative;
-  text-align: center;
+  width: 100%;
+  height: 65vh;
+  min-height: 360px;
+  max-height: 520px;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 
 .hero img {
-  width: 50%;       /* smaller width */
-  max-width: 400px; /* ensures it doesn't stretch too large on desktop */
-  height: auto;
-  border-radius: 14px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* THIS is the magic */
+  display: block;
+  border-radius: 0;          /* headers should be edge-to-edge */
 }
+
 
 .hero-text {
   position: absolute;
@@ -101,7 +107,13 @@ nav a:hover {
   font-weight: 500;
   display: inline-block;
 }
-
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh;
+    min-height: 260px;
+  }
+}
 /* ===== SCRAPBOOK SPARKLE ===== */
 .hero-text .emoji-sparkle {
   display: inline-block;
@@ -368,7 +380,10 @@ nav a:hover {
         <div class="city">• Philadelphia, PA: late night jazz bars</div>
         <div class="city">• Detroit, MI: techno & rap lounges</div>
         <div class="city">• Atlanta, GA: hip-hop nightlife & lounges</div>
-        <a class="cta-btn">Browse Nightlife</a>
+        <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  Browse Nightlife
+</a>
+
     </div>
 </div>
 
@@ -388,7 +403,10 @@ nav a:hover {
         <div class="city">• Minneapolis, MN: ice fishing</div>
         <div class="city">• Phoenix, AZ: desert hiking</div>
         <div class="city">• Charlotte, NC: minor league basketball</div>
-        <a class="cta-btn">Find Sports</a>
+       <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  Find Sports
+</a>
+
     </div>
 </div>
 
@@ -407,7 +425,10 @@ nav a:hover {
         <h4>Other Cities</h4>
         <div class="city">• Nashville, TN: immersive shows</div>
         <div class="city">• Las Vegas, NV: dinner theater</div>
-        <a class="cta-btn">See Shows</a>
+       <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  See Shows
+</a>
+
     </div>
 </div>
 
@@ -423,7 +444,9 @@ nav a:hover {
         <h4>Other Cities</h4>
         <div class="city">• Seattle, WA: winter light installations</div>
         <div class="city">• Santa Fe, NM: art & craft festivals</div>
-        <a class="cta-btn">Explore Festivals</a>
+       <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  Explore Festivals
+</a>
     </div>
 </div>
 
@@ -439,7 +462,10 @@ nav a:hover {
         <h4>Other Cities</h4>
         <div class="city">• Glacier NP, MT:  winter wildlife</div>
         <div class="city">• Moab, UT: cold weather hiking</div>
-        <a class="cta-btn">Plan Getaway</a>
+       <a class="cta-btn" href="https://lnk.bio/RaeRoutes" target="_blank">
+  Plan Getaway
+</a>
+
     </div>
 </div>
 
@@ -460,7 +486,10 @@ nav a:hover {
         <div class="city">• Miami, FL: Latin + EDM</div>
         <div class="city">• Louisville, KY: indie + folk</div>
         <div class="city">• Detroit, MI: techno + rap</div>
-        <a class="cta-btn">Browse Music</a>
+       <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  Browse Music
+</a>
+
     </div>
 </div>
 
@@ -476,7 +505,10 @@ nav a:hover {
         <h4>Other Cities</h4>
         <div class="city">• NYC, NY:  candlelight classical</div>
         <div class="city">• Boston, MA: chamber concerts</div>
-        <a class="cta-btn">Find Chill Shows</a>
+        <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  Find Chill Shows
+</a>
+
     </div>
 </div>
 
@@ -492,7 +524,10 @@ nav a:hover {
         <h4>Other Cities</h4>
         <div class="city">• LA, CA: wine tours</div>
         <div class="city">• Asheville, NC: farm-to-table experiences</div>
-        <a class="cta-btn">Book Food Tours</a>
+       <a class="cta-btn" href="https://damonycasegura.inteletravel.com/booktravel.cfm" target="_blank">
+  Book Food Tours
+</a>
+
     </div>
 </div>
 

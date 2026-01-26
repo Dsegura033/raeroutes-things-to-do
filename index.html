@@ -79,35 +79,36 @@ img {
   box-sizing: border-box;
 }
     
-
-    /* ===== DESKTOP HEADER CLEANUP ===== */
+/* ===== DESKTOP HEADER CLEANUP ===== */
 @media (min-width: 900px) {
 
   .site-header {
-    padding: 16px 32px;
+    padding: 18px 40px;      /* slightly more padding on desktop */
   }
 
   .header-inner {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto;          /* center header content */
   }
 
   /* keep logo small–medium */
   .site-logo {
-    max-height: 50px;
+    max-height: 52px;        /* small–medium size */
   }
 
   /* desktop nav behavior */
   nav {
     gap: 14px;
-    flex-wrap: nowrap; /* stop wrapping on desktop */
+    flex-wrap: nowrap;       /* stop wrapping on desktop */
   }
 
   nav a {
-    font-size: 13px;
-    padding: 6px 10px;
+    font-size: 14px;         /* slightly bigger than mobile */
+    padding: 6px 14px;       /* comfortable clickable area */
   }
 }
+
+
 
     
 /* ===== HERO (MOBILE FIRST) ===== */
@@ -597,17 +598,18 @@ img {
 
 <body>
 
-<header>
-  <div style="display:flex; align-items:center;">
-    <img src="IMG_7560.jpg" alt="RaeRoutes Logo">
-    <h1>RaeRoutes</h1>
+<header class="site-header">
+  <div class="header-inner">
+    <img src="IMG_7560.jpg" alt="RaeRoutes Logo" class="site-logo">
+
+    <nav>
+      <a href="#categories">February's Something for Everyone</a>
+      <a href="#spotlight">Spotlight of the Month</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#categories">February's Something for Everyone</a>
-    <a href="#spotlight">Spotlight of the Month</a>
-    <a href="#contact">Contact</a>
-  </nav>
 </header>
+
 
 <div class="hero-wrapper">
   <div class="hero-card">

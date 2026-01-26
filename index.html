@@ -68,11 +68,11 @@ nav a:hover {
 .hero {
   position: relative;
   width: 100%;
-  height: 65vh;
-  min-height: 360px;
-  max-height: 520px;
+  height: 55vh;          /* smaller than before */
+  min-height: 300px;
+  max-height: 440px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero img {
@@ -110,8 +110,8 @@ nav a:hover {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .hero {
-    height: 40vh;
-    min-height: 260px;
+    height: 32vh;
+    min-height: 220px;
   }
 }
 /* ===== SCRAPBOOK SPARKLE ===== */
@@ -172,20 +172,63 @@ nav a:hover {
 }
 .overlay-content {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border-radius: 16px;
-    padding: 24px;
+    border-radius: 18px;
+    padding: 26px;
     width: 90%;
     max-width: 600px;
-    max-height: 90%;
+    max-height: 88%;
     overflow-y: auto;
-    color: #2A2A2A;  /* changed from white to dark gray */
+    color: #2A2A2A;
     position: relative;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transform: rotate(-0.2deg);
+
+    /* NEW scrapbook details */
+    border: 2px solid rgba(0,0,0,0.28);
+    box-shadow:
+        4px 5px 0 rgba(0,0,0,0.10),
+        0 8px 20px rgba(0,0,0,0.08);
+
     font-size: 14px;
 }
-.overlay-content h3 { margin-top: 0; }
-.overlay-content h4 { margin: 10px 0 6px; font-size: 15px; }
-.overlay-content .city { margin-left: 12px; font-size: 13px; opacity: 0.9; }
+.overlay-content h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.overlay-content h4 {
+    margin: 14px 0 6px;
+    font-size: 15px;
+    border-bottom: 1px dashed rgba(0,0,0,0.25);
+    padding-bottom: 4px;
+}
+
+.overlay-content .city {
+    margin-left: 14px;
+    font-size: 13px;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+    
+/* ===== CTA Button  ===== */
+   .cta-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 18px;
+    border: 2px solid rgba(0,0,0,0.4);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.35);
+    color: #2A2A2A;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+    background: rgba(255,255,255,0.55);
+    transform: translateY(-1px);
+}
+
 
 /* ===== CLOSE BUTTON ===== */
 .close-btn {

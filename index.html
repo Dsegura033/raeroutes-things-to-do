@@ -28,6 +28,47 @@ body {
     --overlay-bg: rgba(0,0,0,0.2); /* soft translucent overlay */
 }
     
+    /* ===== HEADER ===== */
+.site-header {
+  padding: 10px 14px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.site-logo {
+  max-height: 42px;      /* hard stop */
+  width: auto;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;      /* IMPORTANT */
+}
+
+nav a {
+  background: rgba(255,255,255,0.3);
+  padding: 4px 8px;     /* smaller on mobile */
+  border-radius: 6px;
+  font-size: 12px;      /* mobile size */
+  white-space: nowrap; /* prevents tall wrapping */
+  text-decoration: none;
+  color: #2A2A2A;
+  transition: background 0.2s, transform 0.2s;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.5);
+  transform: translateY(-1px);
+}
+
+    
     /* ===== MOBILE FIRST SAFETY NET ===== */
 img {
   max-width: 100%;
@@ -69,28 +110,6 @@ img {
     max-width: 1000px;
     margin: 0 auto;
   }
-}
-
-
-
-nav {
-    display: flex;
-    gap: 12px;
-}
-
-nav a {
-    background: rgba(255,255,255,0.3);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-decoration: none;
-    color: #2A2A2A;  /* changed from white to dark gray */
-    transition: background 0.2s, transform 0.2s;
-}
-
-nav a:hover {
-    background: rgba(255,255,255,0.5);
-    transform: translateY(-2px);
 }
 
 

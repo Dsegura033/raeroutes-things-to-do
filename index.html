@@ -78,7 +78,38 @@ img {
 * {
   box-sizing: border-box;
 }
+    
 
+    /* ===== DESKTOP HEADER CLEANUP ===== */
+@media (min-width: 900px) {
+
+  .site-header {
+    padding: 16px 32px;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* keep logo small–medium */
+  .site-logo {
+    max-height: 50px;
+  }
+
+  /* desktop nav behavior */
+  nav {
+    gap: 14px;
+    flex-wrap: nowrap; /* stop wrapping on desktop */
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
+    
 /* ===== HERO (MOBILE FIRST) ===== */
 .hero-wrapper {
   padding: 12px;

@@ -53,6 +53,39 @@ nav a:hover {
     background: rgba(255,255,255,0.5);
     transform: translateY(-2px);
 }
+    .hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2A2A2A; /* black text */
+  text-shadow: 0 2px 6px rgba(255,255,255,0.6); /* optional, subtle shadow */
+}
+
+.hero-text h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.hero-text p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 
 /* ===== SUBTITLE ===== */
 .subtitle {
@@ -130,6 +163,68 @@ nav a:hover {
     cursor: pointer;
     color: white;
 }
+    
+/* ===== SPOTLIGHT SECTION ===== */
+#spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 238, 252, 0.95); /* soft pastel overlay */
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+#spotlight .overlay-content {
+    position: relative;
+    background: #FDEDF4; /* soft pastel pink */
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90%;
+    overflow-y: auto;
+    text-align: center;
+    color: #2A2A2A; /* black text */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+#spotlight .overlay-content h3 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+#spotlight .overlay-content p {
+    font-size: 16px;
+    margin: 12px 0 0;
+}
+
+/* Close button */
+#spotlight .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #2A2A2A; /* black close button */
+}
+
+/* Optional sparkle animation */
+#spotlight .emoji-sparkle {
+    display: inline-block;
+    animation: floatSparkle 3s infinite;
+}
+
+@keyframes floatSparkle {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
 
 /* ===== CTA BUTTON ===== */
 .cta-btn {
@@ -205,9 +300,14 @@ nav a:hover {
         <a href="#spotlight">Spotlight of the Month</a>
         <a href="#contact">Contact</a>
     </nav>
-</header>
+<div class="hero">
+  <img src="your-hero-image.jpg" alt="Something for Everyone">
+  <div class="hero-text">
+    <h2>Something for Everyone</h2>
+    <p>February Edition</p>
+  </div>
+</div>
 
-<div class="subtitle">Romantic • Cozy • Fun • Nightlife • Festivals • Getaways</div>
 
 <!-- CATEGORY CARDS -->
 <div id="categories" class="category-scroll">

@@ -25,7 +25,7 @@ header {
     align-items: center;
     padding: 16px 20px;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #fff;
+    color: #2A2A2A;  /* changed from white to dark gray */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -130,7 +130,7 @@ nav a:hover {
     border-radius: 14px;
     background: linear-gradient(135deg, var(--accent2), var(--accent));
     padding: 16px;
-    color: #fff;
+    color: #2A2A2A;  /* changed from white to dark gray */
     scroll-snap-align: start;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -166,7 +166,7 @@ nav a:hover {
     max-width: 600px;
     max-height: 90%;
     overflow-y: auto;
-    color: #fff;
+    color: #2A2A2A;  /* changed from white to dark gray */
     position: relative;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     font-size: 14px;
@@ -198,6 +198,7 @@ nav a:hover {
     align-items: center;
     padding: 20px;
     z-index: 1000;
+    overflow-y: auto;
 }
 
 #spotlight .overlay-content {
@@ -210,8 +211,9 @@ nav a:hover {
     max-height: 90%;
     overflow-y: auto;
     text-align: center;
-    color: #2A2A2A; /* black text */
+    color: #2A2A2A; /* dark text for readability */
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    font-family: 'Poppins', sans-serif;
 }
 
 #spotlight .overlay-content h3 {
@@ -225,7 +227,7 @@ nav a:hover {
     margin: 12px 0 0;
 }
 
-/* Close button */
+/* CLOSE BUTTON */
 #spotlight .close-btn {
     position: absolute;
     top: 12px;
@@ -235,16 +237,27 @@ nav a:hover {
     color: #2A2A2A; /* black close button */
 }
 
-/* Optional sparkle animation */
+/* SPARKLE ANIMATION */
 #spotlight .emoji-sparkle {
     display: inline-block;
     animation: floatSparkle 3s infinite;
+    font-size: 22px;
+    margin-left: 6px;
 }
 
 @keyframes floatSparkle {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ===== NOTE BELOW SPOTLIGHT ===== */
+.note {
+    padding: 20px 15px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* ===== CTA BUTTON ===== */
@@ -259,15 +272,7 @@ nav a:hover {
     margin-top: 12px;
     transition: background 0.2s;
 }
-.cta-btn:hover { background: #FFD6EB; }
 
-/* ===== NOTE ===== */
-.note {
-    padding: 30px 20px;
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.7;
-}
 
 /* ===== CONTACT SECTION ===== */
 .contact {

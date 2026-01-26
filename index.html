@@ -68,9 +68,10 @@ nav a:hover {
 .hero-wrapper {
   display: flex;
   justify-content: center;
-  padding: 40px 20px 60px; /* vertical scrapbook spacing */
+  align-items: center;        /* centers vertically */
+  padding: 40px 20px 40px;
   background: linear-gradient(135deg, #FDEBD0, #FFE6F0); /* brand + pink hints */
-  min-height: 320px; /* ensures hero area always has presence */
+  min-height: 280px;          /* smaller than before */
 }
 
 /* scrapbook card container */
@@ -79,34 +80,44 @@ nav a:hover {
   background: linear-gradient(135deg, var(--accent2), var(--accent)); /* scrapbook paper */
   border: 2px solid rgba(0,0,0,0.25);  /* subtle edge */
   border-radius: 0;                     /* sharp edges */
-  padding: 24px;
-  max-width: 1200px;
-  width: 100%;
+  padding: 12px 16px;                   /* smaller padding */
+  max-width: 900px;                     /* smaller card width */
+  width: 90%;                            /* scales on mobile */
   text-align: center;
 
-  /* lifted scrapbook effect */
+  /* scrapbook depth + ripped effect */
   box-shadow:
-    inset 0 0 0 2px rgba(0,0,0,0.1),  /* inner edge for rough/torn effect */
+    inset 0 0 0 2px rgba(0,0,0,0.1),   /* rough/torn inner edge */
     4px 5px 0 rgba(0,0,0,0.1),
-    0 10px 24px rgba(0,0,0,0.08);
+    0 8px 20px rgba(0,0,0,0.08);
 
-  /* slight rotation for hand-placed feel */
-  transform: rotate(-0.2deg);
+  transform: rotate(-0.2deg);           /* hand-placed feel */
 }
 
 /* hero image inside card */
 .hero-card img {
-  width: 100%;
+  width: 100%;            /* fills width of card */
+  max-height: 320px;      /* limits vertical size */
   height: auto;
-  object-fit: contain;  /* keeps full image visible */
-  border-radius: 0;     /* sharp edges */
+  object-fit: contain;    /* keeps full image visible */
+  display: block;
+  margin: 0 auto;         /* centers image horizontally */
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .hero-wrapper {
-    padding: 24px 12px 40px;
-    min-height: 220px;
+    padding: 24px 12px 32px;
+    min-height: 200px;
+  }
+
+  .hero-card {
+    max-width: 100%;
+    padding: 8px 12px;
+  }
+
+  .hero-card img {
+    max-height: 220px;
   }
 }
 

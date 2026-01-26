@@ -64,74 +64,61 @@ nav a:hover {
 }
 
 
-/* ===== HERO ===== */
-.hero {
+/* ===== HERO SCRAPBOOK STYLE ===== */
+.hero-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 60px; /* vertical scrapbook spacing */
+  background: linear-gradient(135deg, #FDEBD0, #FFE6F0); /* brand + pink hints */
+  min-height: 320px; /* ensures hero area always has presence */
+}
+
+/* scrapbook card container */
+.hero-card {
   position: relative;
+  background: linear-gradient(135deg, var(--accent2), var(--accent)); /* scrapbook paper */
+  border: 2px solid rgba(0,0,0,0.25);  /* subtle edge */
+  border-radius: 0;                     /* sharp edges */
+  padding: 24px;
+  max-width: 1200px;
   width: 100%;
-  margin-bottom: 20px;
   text-align: center;
+
+  /* lifted scrapbook effect */
+  box-shadow:
+    inset 0 0 0 2px rgba(0,0,0,0.1),  /* inner edge for rough/torn effect */
+    4px 5px 0 rgba(0,0,0,0.1),
+    0 10px 24px rgba(0,0,0,0.08);
+
+  /* slight rotation for hand-placed feel */
+  transform: rotate(-0.2deg);
 }
 
-.hero img {
-  width: 100%;         /* stretches across page */
-  height: auto;        /* maintains full aspect ratio */
-  object-fit: contain; /* shows entire image, no cropping */
-  max-width: 1200px;   /* optional, keeps it from being too huge on desktop */
-  border-radius: 14px; /* optional, soft edges */
+/* hero image inside card */
+.hero-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;  /* keeps full image visible */
+  border-radius: 0;     /* sharp edges */
 }
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #F85CA0;  /* fun scrapbook pink */
-  text-shadow: 0 2px 6px rgba(255,255,255,0.6);
-  font-family: 'Poppins', sans-serif;
-}
-
-.hero-text h2 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  display: inline-block;
-}
-
-.hero-text p {
-  margin: 4px 0 0;
-  font-size: 16px;
-  font-weight: 500;
-  display: inline-block;
-}
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .hero {
-    height: 32vh;
+  .hero-wrapper {
+    padding: 24px 12px 40px;
     min-height: 220px;
   }
-}
-/* ===== SCRAPBOOK SPARKLE ===== */
-.hero-text .emoji-sparkle {
-  display: inline-block;
-  animation: floatSparkle 3s infinite;
-  font-size: 22px;
-  margin-left: 6px;
-}
-
-@keyframes floatSparkle {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-4px) rotate(10deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
 }
 
 /* ===== CATEGORY CARDS ===== */
 .category-scroll {
     display: flex;
     overflow-x: auto;
-    gap: 18px;                     /* more breathing room */
+    gap: 18px;                     
     padding: 8px 20px 28px;
     scroll-snap-type: x mandatory;
 }
+
 .card {
     min-width: 300px;
     max-width: 300px;
@@ -142,29 +129,33 @@ nav a:hover {
     font-weight: 600;
     text-align: center;
 
-    border-radius: 18px;
-    border: 2px solid rgba(0,0,0,0.3);
+    border-radius: 0; /* removed rounding for scrapbook */
+    border: 2px solid rgba(0,0,0,0.28); /* subtle paper edge */
 
     position: relative;
     cursor: pointer;
     scroll-snap-align: start;
 
-    /* scrapbook depth */
+    /* scrapbook depth + ripped effect */
     box-shadow:
+        inset 0 0 0 2px rgba(0,0,0,0.1), /* inner edge = rough/ripped look */
         4px 5px 0 rgba(0,0,0,0.10),
         0 8px 20px rgba(0,0,0,0.08);
 
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
+
+    transform: rotate(-0.2deg); /* slight hand-placed tilt */
 }
+
 .card:hover {
     transform: translateY(-4px) rotate(-0.3deg);
     box-shadow:
         6px 7px 0 rgba(0,0,0,0.12),
         0 12px 26px rgba(0,0,0,0.10);
 }
-    
+
 .card::before {
     content: "";
     position: absolute;
@@ -174,10 +165,10 @@ nav a:hover {
     width: 70px;
     height: 18px;
     background: rgba(255,255,255,0.45);
-    border-radius: 4px;
+    border-radius: 0; /* sharp, scrapbook tape accent */
 }
 
-    /* ===== CATEGORY CARDS ANIMATION ===== */
+/* ===== CATEGORY CARDS ANIMATION ===== */
 @keyframes cardEntrance {
     0% {
         opacity: 0;
@@ -201,14 +192,12 @@ nav a:hover {
 .category-scroll .card:nth-child(4) { animation-delay: 0.4s; }
 .category-scroll .card:nth-child(5) { animation-delay: 0.5s; }
 .category-scroll .card:nth-child(6) { animation-delay: 0.6s; }
-/* Add more as needed */
-    
+
 @media (max-width: 768px) {
     .card {
         animation-duration: 0.5s; /* slightly faster on small screens */
     }
 }
-
 
 /* ===== OVERLAY PANELS ===== */
 .overlay {
@@ -224,9 +213,10 @@ nav a:hover {
     padding: 20px;
     z-index: 1000;
 }
+
 .overlay-content {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border-radius: 18px;
+    border-radius: 0; /* sharp edges */
     padding: 26px;
     width: 90%;
     max-width: 600px;
@@ -236,14 +226,16 @@ nav a:hover {
     position: relative;
     transform: rotate(-0.2deg);
 
-    /* NEW scrapbook details */
+    /* scrapbook ripped effect */
     border: 2px solid rgba(0,0,0,0.28);
     box-shadow:
+        inset 0 0 0 2px rgba(0,0,0,0.1), /* inner edge = ripped paper */
         4px 5px 0 rgba(0,0,0,0.10),
         0 8px 20px rgba(0,0,0,0.08);
 
     font-size: 14px;
 }
+
 .overlay-content h3 {
     margin-top: 0;
     font-size: 18px;
@@ -263,14 +255,13 @@ nav a:hover {
     line-height: 1.4;
 }
 
-    
 /* ===== CTA Button  ===== */
-   .cta-btn {
+.cta-btn {
     display: inline-block;
     margin-top: 18px;
     padding: 10px 18px;
     border: 2px solid rgba(0,0,0,0.4);
-    border-radius: 14px;
+    border-radius: 0; /* sharp edges */
     background: rgba(255,255,255,0.35);
     color: #2A2A2A;
     text-decoration: none;
@@ -283,7 +274,6 @@ nav a:hover {
     transform: translateY(-1px);
 }
 
-
 /* ===== CLOSE BUTTON ===== */
 .close-btn {
     position: absolute;
@@ -293,6 +283,7 @@ nav a:hover {
     cursor: pointer;
     color: white;
 }
+
     
 /* ===== SPOTLIGHT SECTION ===== */
 #spotlight {

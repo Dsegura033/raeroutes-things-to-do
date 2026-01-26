@@ -68,21 +68,17 @@ nav a:hover {
 .hero {
   position: relative;
   width: 100%;
-  height: 55vh;          /* smaller than before */
-  min-height: 300px;
-  max-height: 440px;
-  overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .hero img {
-  width: 70%;
-  height: 100%;
-  object-fit: cover;         /* THIS is the magic */
-  display: block;
-  border-radius: 0;          /* headers should be edge-to-edge */
+  width: 100%;         /* stretches across page */
+  height: auto;        /* maintains full aspect ratio */
+  object-fit: contain; /* shows entire image, no cropping */
+  max-width: 1200px;   /* optional, keeps it from being too huge on desktop */
+  border-radius: 14px; /* optional, soft edges */
 }
-
 
 .hero-text {
   position: absolute;

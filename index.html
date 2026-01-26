@@ -11,13 +11,23 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #FFF7F9; /* very soft pastel pink */
-    color: #333; /* softer dark gray for readability */
+
+    /* Scrapbook-inspired background */
+    background: linear-gradient(135deg, #FFEAF2, #FFD1E6); /* soft pink gradient */
+    /* Optional: subtle paper texture overlay */
+    /* background-image: url('scrapbook-texture.png'); */
+    background-size: cover;
+    background-repeat: repeat;
+
+    color: #2A2A2A;           /* dark gray, softer than pure black */
     overflow-x: hidden;
-    --accent: #F8C8DC;   /* pastel pink */
-    --accent2: #C5D8F6;  /* pastel blue */
-    --overlay-bg: rgba(0,0,0,0.2); /* softer overlay */
+
+    /* Brand colors for gradients and overlays */
+    --accent: #F8C8DC;        /* pastel pink */
+    --accent2: #C5D8F6;       /* pastel blue */
+    --overlay-bg: rgba(0,0,0,0.2); /* soft translucent overlay */
 }
+
 /* ===== HEADER ===== */
 header {
     display: flex;
@@ -98,9 +108,9 @@ nav a:hover {
 
 /* hero image inside card */
 .hero-card img {
-  width: 100%;
-  height: 60%;
-  object-fit: cover;    /* fills card, may crop edges */
+  width: auto;
+  height: 90%;
+  object-fit: contianed;    /* fills card, may crop edges */
   display: block;
 }
 
@@ -170,25 +180,33 @@ nav a:hover {
 }
 
 /* ===== SCRAPBOOK VALENTINE TAPE ===== */
-.card::before {
-    content: "";
-    position: absolute;
-    top: -10px;
+.card::before,
+.overlay-content::before {
+    background: 
+        /* small hearts pattern */
+        repeating-radial-gradient(
+            circle at 3px 3px,
+            #ff5ca0 0px,
+            #ff5ca0 3px,
+            transparent 3px,
+            transparent 6px
+        ),
+        /* optional light stripes behind hearts for depth */
+        repeating-linear-gradient(
+            45deg,
+            #ff9ecb,
+            #ff9ecb 6px,
+            #ff5ca0 6px,
+            #ff5ca0 12px
+        );
+    border-radius: 2px; /* subtle rounded corners for tape */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    width: 80px;   /* adjust width of tape */
+    height: 20px;  /* adjust height of tape */
+    top: -10px;    /* position above card */
     left: 50%;
     transform: translateX(-50%) rotate(-3deg);
-    width: 80px;
-    height: 20px;
-
-    /* Valentine’s tape pattern */
-    background: repeating-linear-gradient(
-        45deg,
-        #ff9ecb,
-        #ff9ecb 6px,
-        #ff5ca0 6px,
-        #ff5ca0 12px
-    );
-    border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    position: absolute;
     z-index: 2;
 }
 

@@ -27,41 +27,50 @@ body {
     --accent2: #C5D8F6;       /* pastel blue */
     --overlay-bg: rgba(0,0,0,0.2); /* soft translucent overlay */
 }
-
-/* ===== HEADER ===== */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #2A2A2A;  /* changed from white to dark gray */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-}
-
-header img {
-    height: 40px;
-    margin-right: 12px;
-}
-
-header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0;
-}
     
-    @media (max-width: 768px) {
-  body {
-    font-size: 15px;
-  }
+    /* ===== MOBILE FIRST SAFETY NET ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-  header h1 {
-    font-size: 18px;
+* {
+  box-sizing: border-box;
+}
+
+/* ===== HERO (MOBILE FIRST) ===== */
+.hero-wrapper {
+  padding: 12px;
+  background: linear-gradient(135deg, #FDEBD0, #FFE6F0);
+}
+
+.hero-card {
+  width: 100%;
+  height: 220px;              /* MOBILE LOCK */
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.25);
+  box-shadow:
+    inset 0 0 0 2px rgba(0,0,0,0.1),
+    3px 4px 0 rgba(0,0,0,0.1),
+    0 6px 16px rgba(0,0,0,0.08);
+}
+
+.hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* THIS IS KEY */
+  display: block;
+}
+
+/* DESKTOP SCALE UP */
+@media (min-width: 900px) {
+  .hero-card {
+    height: 380px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 }
+
 
 
 nav {
@@ -138,14 +147,24 @@ nav a:hover {
 }
 
 
-/* ===== CATEGORY CARDS GRID ===== */
+/* ===== CATEGORY CARDS GRID (MOBILE FIRST) ===== */
 .category-scroll {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* two cards per row */
-    gap: 20px;                             /* space between cards */
-    padding: 20px;                          /* padding around grid */
-    justify-items: center;                  /* center cards in each column */
+  display: grid;
+  grid-template-columns: 1fr;      /* ONE card per row on mobile */
+  gap: 16px;
+  padding: 16px;
+  justify-items: center;
 }
+
+/* Tablets + Desktop */
+@media (min-width: 768px) {
+  .category-scroll {
+    grid-template-columns: repeat(2, 1fr); /* two cards per row */
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
 
 /* ===== CARD STYLE ===== */
 .card {
@@ -540,9 +559,10 @@ nav a:hover {
   </nav>
 </header>
 
-<!-- HERO SECTION -->
-<div class="hero">
-  <img src="febedition.png" alt="Something for Everyone">
+<div class="hero-wrapper">
+  <div class="hero-card">
+    <img src="febedition.png" alt="Something for Everyone">
+  </div>
 </div>
 
 

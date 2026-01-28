@@ -471,22 +471,21 @@ img {
     display: flex !important; /* forces the overlay to show */
 }
 
+/* Flex layout for desktop, stacked for mobile */
 .spotlight-flex {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     align-items: flex-start;
-    justify-content: center; /* centers in overlay */
-    text-align: left; /* so text aligns naturally beside image */
+    justify-content: center;
+    text-align: left;
 }
 
 /* Image container */
 .spotlight-image-container {
     flex: 1 1 300px;
-    max-width: 45%; /* desktop view */
+    max-width: 45%;
 }
-
-/* Spotlight main image */
 .spotlight-image {
     width: 100%;
     height: auto;
@@ -498,7 +497,7 @@ img {
     flex: 1 1 300px;
 }
 
-/* Flyer box inside text */
+/* Flyer box */
 .flyer-box {
     border: 1px solid #ccc;
     padding: 10px;
@@ -507,11 +506,10 @@ img {
     background-color: #F9F9F9;
     text-align: center;
 }
-
 .flyer-image {
     width: 100%;
-    height: auto;
     max-width: 300px;
+    height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -527,16 +525,18 @@ img {
     margin-top: 10px;
 }
 
-/* Responsive: stack on mobile */
+/* Responsive stacking for mobile */
 @media (max-width: 768px) {
     .spotlight-flex {
         flex-direction: column;
-        text-align: center; /* centers text when stacked */
+        text-align: center;
     }
-    .spotlight-image-container, .spotlight-text {
+    .spotlight-image-container,
+    .spotlight-text {
         max-width: 100%;
     }
 }
+
 
 /* ===== CONTACT SECTION ===== */
 .contact {
@@ -812,45 +812,41 @@ img {
 </div>
 
 
-<!-- SPOTLIGHT SECTION (hidden by default) -->
-<div id="spotlight" class="overlay" style="display:none;">
-    <div class="overlay-content spotlight-flex">
-        <!-- Close button -->
-        <span class="close-btn" onclick="closeOverlay()">×</span>
-
-        <!-- Spotlight Image -->
-        <div class="spotlight-image-container">
-            <img src="venice-main-placeholder.jpg" alt="Venice in February  Carnival, canals, and cozy cafés" class="spotlight-image">
-        </div>
-
-        <!-- Spotlight Text -->
-        <div class="spotlight-text">
-            <h3>🌟 February Spotlight: Venice, Italy 🎭</h3>
-            <p>
-                Venice in February is moody, romantic, and unforgettable.  
-                With Carnival season in full swing, the city comes alive with masks, culture, and history all without the summer crowds.
-                It’s atmospheric, artistic, and beautifully slow.
-            </p>
-
-            <ul class="spotlight-list">
-                <li>🎭 Carnival events & cultural experiences</li>
-                <li>🛶 Gondola rides through quiet canals</li>
-                <li>☕️ Cozy cafés & Venetian pastries</li>
-                <li>📸 Winter light & fewer tourists</li>
-            </ul>
-
-            <!-- Flyer Box / Optional Highlight -->
-            <div class="flyer-box">
-                <img src="venice-room-placeholder.jpg" alt="Cozy Canal-Side Room in Venice" class="flyer-image">
-                <h4>Stay in a Cozy Canal-Side Room</h4>
-                <p>Breakfast included, steps from the Carnival festivities.</p>
-            </div>
-
-            <!-- CTA Button -->
-            <a class="cta-btn" href="https://form.jotform.com/your-form-placeholder" target="_blank">Plan My Venice Experience</a>
-        </div>
+<!-- SPOTLIGHT SECTION (inline display) -->
+<section id="spotlight" class="spotlight-flex" style="padding: 20px 0;">
+    <!-- Spotlight Image -->
+    <div class="spotlight-image-container">
+        <img src="venice-main-placeholder.jpg" alt="Venice in February - Carnival, canals, and cozy cafés" class="spotlight-image">
     </div>
-</div>
+
+    <!-- Spotlight Text -->
+    <div class="spotlight-text">
+        <h3>🌟 February Spotlight: Venice, Italy 🎭</h3>
+        <p>
+            Venice in February is moody, romantic, and unforgettable.  
+            With Carnival season in full swing, the city comes alive with masks, culture, and history — all without the summer crowds.
+            It’s atmospheric, artistic, and beautifully slow.
+        </p>
+
+        <ul class="spotlight-list">
+            <li>🎭 Carnival events & cultural experiences</li>
+            <li>🛶 Gondola rides through quiet canals</li>
+            <li>☕️ Cozy cafés & Venetian pastries</li>
+            <li>📸 Winter light & fewer tourists</li>
+        </ul>
+
+        <!-- Flyer Box -->
+        <div class="flyer-box">
+            <img src="venice-room-placeholder.jpg" alt="Cozy Canal-Side Room in Venice" class="flyer-image">
+            <h4>Stay in a Cozy Canal-Side Room</h4>
+            <p>Breakfast included, steps from the Carnival festivities.</p>
+        </div>
+
+        <!-- CTA Button -->
+        <a class="cta-btn" href="https://form.jotform.com/your-form-placeholder" target="_blank">Plan My Venice Experience</a>
+    </div>
+</section>
+
 
 <!-- NOTE under spotlight -->
 <div class="note">

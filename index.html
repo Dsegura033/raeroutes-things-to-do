@@ -465,96 +465,74 @@ img {
         font-size: 14px;
     }
 }
-
     
-/* ===== SPOTLIGHT SECTION ===== */
-#spotlight {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* New: Flex container for spotlight content */
+.spotlight-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center; /* centers in overlay */
+    text-align: left; /* so text aligns naturally beside image */
+}
+
+/* Image container */
+.spotlight-image-container {
+    flex: 1 1 300px;
+    max-width: 45%; /* desktop view */
+}
+
+/* Spotlight main image */
+.spotlight-image {
     width: 100%;
-    height: 100%;
-    background: rgba(245, 238, 252, 0.95); /* soft pastel overlay */
-    display: none; /* hidden by default */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 1000;
-    overflow-y: auto;
+    height: auto;
+    border-radius: 12px;
 }
 
-#spotlight .overlay-content {
-    position: relative;
-    background: #FDEDF4; /* soft pastel pink */
-    border-radius: 16px;
-    padding: 24px;
-    width: 90%;
-    max-width: 500px;
-    max-height: 90%;
-    overflow-y: auto;
+/* Text container */
+.spotlight-text {
+    flex: 1 1 300px;
+}
+
+/* Flyer box inside text */
+.flyer-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 8px;
+    background-color: #F9F9F9;
     text-align: center;
-    color: #2A2A2A; /* dark text for readability */
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    font-family: 'Poppins', sans-serif;
 }
 
-#spotlight .overlay-content h3 {
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 12px;
+.flyer-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-#spotlight .overlay-content p {
-    font-size: 16px;
-    margin: 12px 0 0;
-}
-
-/* CLOSE BUTTON */
-#spotlight .close-btn {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 22px;
-    cursor: pointer;
-    color: #2A2A2A; /* black close button */
-}
-
-/* SPARKLE ANIMATION */
-#spotlight .emoji-sparkle {
-    display: inline-block;
-    animation: floatSparkle 3s infinite;
-    font-size: 22px;
-    margin-left: 6px;
-}
-
-@keyframes floatSparkle {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-4px) rotate(10deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-
-/* ===== NOTE BELOW SPOTLIGHT ===== */
-.note {
-    padding: 20px 15px;
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.7;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* ===== CTA BUTTON ===== */
+/* CTA button */
 .cta-btn {
     display: inline-block;
-    background: #FBCDE2; /* pastel button */
-    color: #333;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-size: 14px;
+    padding: 12px 20px;
+    background-color: #4f46e5;
+    color: #fff;
     text-decoration: none;
-    margin-top: 12px;
-    transition: background 0.2s;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+    .spotlight-flex {
+        flex-direction: column;
+        text-align: center; /* centers text when stacked */
+    }
+    .spotlight-image-container, .spotlight-text {
+        max-width: 100%;
+    }
+}
 
 /* ===== CONTACT SECTION ===== */
 .contact {
@@ -832,24 +810,47 @@ img {
 
 <!-- SPOTLIGHT SECTION (hidden by default) -->
 <div id="spotlight" class="overlay" style="display:none;">
-    <div class="overlay-content">
+    <div class="overlay-content spotlight-flex">
         <!-- Close button -->
         <span class="close-btn" onclick="closeOverlay()">×</span>
 
-        <!-- Spotlight Title -->
-        <h3>🌟 Spotlight of the Month <span class="emoji-sparkle">✨</span></h3>
+        <!-- Spotlight Image -->
+        <div class="spotlight-image-container">
+            <img src="venice-main-placeholder.jpg" alt="Venice in February - Carnival, canals, and cozy cafés" class="spotlight-image">
+        </div>
 
-        <!-- Spotlight Description -->
-        <p>👀 Come back next week for our City Spotlight (US + International)!</p>
+        <!-- Spotlight Text -->
+        <div class="spotlight-text">
+            <h3>🌟 February Spotlight: Venice, Italy 🎭</h3>
+            <p>
+                Venice in February is moody, romantic, and unforgettable.  
+                With Carnival season in full swing, the city comes alive with masks, culture, and history — all without the summer crowds.
+                It’s atmospheric, artistic, and beautifully slow.
+            </p>
 
-        <!-- Optional CTA Button (hidden until ready) -->
-        <!-- <a class="cta-btn" href="#">See Spotlight</a> -->
+            <ul class="spotlight-list">
+                <li>🎭 Carnival events & cultural experiences</li>
+                <li>🛶 Gondola rides through quiet canals</li>
+                <li>☕️ Cozy cafés & Venetian pastries</li>
+                <li>📸 Winter light & fewer tourists</li>
+            </ul>
+
+            <!-- Flyer Box / Optional Highlight -->
+            <div class="flyer-box">
+                <img src="venice-room-placeholder.jpg" alt="Cozy Canal-Side Room in Venice" class="flyer-image">
+                <h4>Stay in a Cozy Canal-Side Room</h4>
+                <p>Breakfast included, steps from the Carnival festivities.</p>
+            </div>
+
+            <!-- CTA Button -->
+            <a class="cta-btn" href="https://form.jotform.com/your-form-placeholder" target="_blank">Plan My Venice Experience</a>
+        </div>
     </div>
 </div>
 
 <!-- NOTE under spotlight -->
 <div class="note">
-    👀 Come back next week for our <strong>City Spotlight</strong>!
+    🌟 <strong>City Spotlight:</strong> Discover Venice in February — Carnival, canals, and cozy cafés await!
 </div>
 
 

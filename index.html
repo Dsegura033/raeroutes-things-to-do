@@ -488,6 +488,28 @@ img {
     text-align: left;
 }
 
+/* ===== SPOTLIGHT CARD WRAPPER ===== */
+#spotlight {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    padding: 40px 20px;
+}
+
+/* Card style for scrapbook / spotlight */
+.spotlight-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: 900px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent2), var(--accent)); /* pastel gradient to match site */
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    text-align: left;
+    color: #2A2A2A; /* keep text readable */
+}
+
 /* Flex layout inside card */
 .spotlight-flex {
     display: flex;
@@ -506,6 +528,7 @@ img {
     width: 100%;
     height: auto;
     border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* Text container */
@@ -515,11 +538,11 @@ img {
 
 /* Flyer box inside text */
 .flyer-box {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 15px;
     margin: 15px 0;
     border-radius: 12px;
-    background-color: #FFF7FB; /* soft pastel lavender / match site palette */
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); /* match site palette */
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
@@ -542,6 +565,13 @@ img {
     text-decoration: none;
     border-radius: 8px;
     margin-top: 10px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Responsive: maintain side-by-side but scale */
@@ -557,9 +587,6 @@ img {
         margin-bottom: 15px;
     }
 }
-
-
-
 
 /* ===== CONTACT SECTION ===== */
 .contact {

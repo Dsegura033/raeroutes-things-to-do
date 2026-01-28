@@ -465,36 +465,39 @@ img {
         font-size: 14px;
     }
 }
-    
-/* New: Flex container for spotlight content */
- #spotlight {
-    display: flex !important; /* forces the overlay to show */
+
+
+ /* Container wrapper to center spotlight */
+#spotlight {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    padding: 40px 20px;
 }
 
-/* Flex layout for desktop and mobile (always side-by-side) */
-.spotlight-flex {
+/* Card style for scrapbook / spotlight */
+.spotlight-card {
     display: flex;
-    flex-wrap: nowrap; /* prevent stacking */
     gap: 20px;
     align-items: flex-start;
-    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    background: #FDEDF4; /* soft pastel pink - can adjust to match site */
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     text-align: left;
 }
 
-/* Text + image card */
-.spotlight-card {
-    background: #FFF7FB; /* soft pastel card background */
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 900px;
+/* Flex layout inside card */
+.spotlight-flex {
     display: flex;
+    flex-wrap: nowrap; /* keep side-by-side */
     gap: 20px;
     align-items: flex-start;
+    width: 100%;
 }
 
-/* Image container (flyer) */
+/* Image container */
 .spotlight-image-container {
     flex: 1 1 300px;
     max-width: 45%;
@@ -516,7 +519,7 @@ img {
     padding: 10px;
     margin: 15px 0;
     border-radius: 12px;
-    background-color: #FDEDF4; /* pastel pink for scrapbook look */
+    background-color: #FFF7FB; /* soft pastel lavender / match site palette */
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
@@ -541,18 +544,20 @@ img {
     margin-top: 10px;
 }
 
-/* Responsive tweak: scale items on smaller screens but keep side-by-side */
+/* Responsive: maintain side-by-side but scale */
 @media (max-width: 768px) {
-    .spotlight-flex, .spotlight-card {
-        flex-direction: row; /* maintain side-by-side */
-        flex-wrap: wrap;     /* allow small scaling if needed */
-        justify-content: center;
+    .spotlight-card, .spotlight-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; /* keeps card centered on mobile */
     }
     .spotlight-image-container,
     .spotlight-text {
-        flex: 1 1 45%; /* shrink items proportionally */
+        flex: 1 1 45%;
+        margin-bottom: 15px;
     }
 }
+
 
 
 

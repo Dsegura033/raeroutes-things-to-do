@@ -471,17 +471,30 @@ img {
     display: flex !important; /* forces the overlay to show */
 }
 
-/* Flex layout for desktop, stacked for mobile */
+/* Flex layout for desktop and mobile (always side-by-side) */
 .spotlight-flex {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* prevent stacking */
     gap: 20px;
     align-items: flex-start;
     justify-content: center;
     text-align: left;
 }
 
-/* Image container */
+/* Text + image card */
+.spotlight-card {
+    background: #FFF7FB; /* soft pastel card background */
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Image container (flyer) */
 .spotlight-image-container {
     flex: 1 1 300px;
     max-width: 45%;
@@ -497,15 +510,18 @@ img {
     flex: 1 1 300px;
 }
 
-/* Flyer box */
+/* Flyer box inside text */
 .flyer-box {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 15px 0;
-    border-radius: 8px;
-    background-color: #F9F9F9;
+    border-radius: 12px;
+    background-color: #FDEDF4; /* pastel pink for scrapbook look */
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* Flyer image */
 .flyer-image {
     width: 100%;
     max-width: 300px;
@@ -525,17 +541,19 @@ img {
     margin-top: 10px;
 }
 
-/* Responsive stacking for mobile */
+/* Responsive tweak: scale items on smaller screens but keep side-by-side */
 @media (max-width: 768px) {
-    .spotlight-flex {
-        flex-direction: column;
-        text-align: center;
+    .spotlight-flex, .spotlight-card {
+        flex-direction: row; /* maintain side-by-side */
+        flex-wrap: wrap;     /* allow small scaling if needed */
+        justify-content: center;
     }
     .spotlight-image-container,
     .spotlight-text {
-        max-width: 100%;
+        flex: 1 1 45%; /* shrink items proportionally */
     }
 }
+
 
 
 /* ===== CONTACT SECTION ===== */
@@ -812,46 +830,36 @@ img {
 </div>
 
 
-<!-- SPOTLIGHT SECTION (inline display) -->
-<section id="spotlight" class="spotlight-flex" style="padding: 20px 0;">
-    <!-- Spotlight Image -->
-    <div class="spotlight-image-container">
-        <img src="venice-main-placeholder.jpg" alt="Venice in February - Carnival, canals, and cozy cafés" class="spotlight-image">
-    </div>
+<!-- SPOTLIGHT SECTION INLINE -->
+<section id="spotlight">
+    <div class="spotlight-card">
+        <!-- Spotlight Text -->
+        <div class="spotlight-text">
+            <h3>🌟 February Spotlight: Venice, Italy 🎭</h3>
+            <p>
+                Venice in February is moody, romantic, and unforgettable.  
+                With Carnival season in full swing, the city comes alive with masks, culture, and history all without the summer crowds.
+                It’s atmospheric, artistic, and beautifully slow.
+            </p>
 
-    <!-- Spotlight Text -->
-    <div class="spotlight-text">
-        <h3>🌟 February Spotlight: Venice, Italy 🎭</h3>
-        <p>
-            Venice in February is moody, romantic, and unforgettable.  
-            With Carnival season in full swing, the city comes alive with masks, culture, and history — all without the summer crowds.
-            It’s atmospheric, artistic, and beautifully slow.
-        </p>
-
-        <ul class="spotlight-list">
-            <li>🎭 Carnival events & cultural experiences</li>
-            <li>🛶 Gondola rides through quiet canals</li>
-            <li>☕️ Cozy cafés & Venetian pastries</li>
-            <li>📸 Winter light & fewer tourists</li>
-        </ul>
+            <ul class="spotlight-list">
+                <li>🎭 Carnival events & cultural experiences</li>
+                <li>🛶 Gondola rides through quiet canals</li>
+                <li>☕️ Cozy cafés & Venetian pastries</li>
+                <li>📸 Winter light & fewer tourists</li>
+            </ul>
+        </div>
 
         <!-- Flyer Box -->
         <div class="flyer-box">
             <img src="venice-room-placeholder.jpg" alt="Cozy Canal-Side Room in Venice" class="flyer-image">
             <h4>Stay in a Cozy Canal-Side Room</h4>
             <p>Breakfast included, steps from the Carnival festivities.</p>
+            <!-- CTA Button -->
+            <a class="cta-btn" href="https://form.jotform.com/your-form-placeholder" target="_blank">Plan My Venice Experience</a>
         </div>
-
-        <!-- CTA Button -->
-        <a class="cta-btn" href="https://form.jotform.com/your-form-placeholder" target="_blank">Plan My Venice Experience</a>
     </div>
 </section>
-
-
-<!-- NOTE under spotlight -->
-<div class="note">
-    🌟 <strong>City Spotlight:</strong> Discover Venice in February! Carnival, canals, and cozy cafés await!
-</div>
 
 
 <!-- CONTACT SECTION -->

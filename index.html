@@ -67,7 +67,81 @@ nav a:hover {
   background: rgba(255,255,255,0.5);
   transform: translateY(-1px);
 }
+/* ===== NAV SEARCH BAR ===== */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px; /* small spacing from nav links */
+}
 
+.nav-search input {
+  padding: 6px 10px;
+  border: 2px solid rgba(0,0,0,0.25);
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+  width: 150px;
+  transition: all 0.2s ease;
+}
+
+.nav-search input:focus {
+  border-color: #FFD93D; /* highlight with April yellow */
+  background-color: rgba(255, 245, 186, 0.2); /* soft pastel hint */
+}
+
+.nav-search button {
+  background: #FFD93D; /* soft April yellow */
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-search button:hover {
+  background: #FFE57F; /* lighter hover */
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+
+    /* Stack nav + search bar vertically */
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 8px 16px;
+    }
+
+    /* Nav full width, wrap links */
+    nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    /* Search bar full width, but keep logo size */
+    .nav-search {
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 0;
+        gap: 6px;
+    }
+
+    .nav-search input {
+        width: 70%;
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .nav-search button {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+}
     
     /* ===== MOBILE FIRST SAFETY NET ===== */
 img {
@@ -546,9 +620,14 @@ img {
     <img src="IMG_7560.jpg" alt="RaeRoutes Logo" class="site-logo">
 
     <nav>
-      <a href="#categories">March's Something for Everyone</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <!-- SEARCH BAR -->
+    <form class="nav-search" onsubmit="return false;">
+      <input type="text" id="searchInput" placeholder="Search activities...">
+      <button type="button" onclick="searchCards()">🔍</button>
+    </form>
   </div>
 </header>
 
@@ -848,6 +927,29 @@ img {
 <script>
 function openOverlay(id){ document.getElementById(id).style.display='flex'; }
 function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.style.display='none'); }
+</script>
+    
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchForm = document.querySelector('.nav-search');
+  const searchInput = searchForm.querySelector('input');
+  const categoryCards = document.querySelectorAll('.category-scroll .card');
+
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // prevent page refresh
+
+    const query = searchInput.value.toLowerCase().trim();
+
+    categoryCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (text.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
 </script>
   
 </body>

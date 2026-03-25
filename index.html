@@ -926,30 +926,47 @@ function openOverlay(id){ document.getElementById(id).style.display='flex'; }
 function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.style.display='none'); }
 </script>
     
- <script>
-function searchCards() {
-  const query = document.getElementById('searchInput').value.toLowerCase().trim();
-
-  // Select all overlays (your category sections)
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
   const overlays = document.querySelectorAll('.overlay');
 
-  if (!overlays.length) return; // stop if no overlays found
+  // Initially hide all overlays if you don't want them visible on page load
+  overlays.forEach(overlay => overlay.style.display = 'none');
 
-  overlays.forEach(overlay => {
-    const overlayContent = overlay.querySelector('.overlay-content');
-    const text = overlayContent ? overlayContent.textContent.toLowerCase() : '';
-    const tags = overlay.dataset.tags ? overlay.dataset.tags.toLowerCase() : '';
+  function searchCards() {
+    const query = searchInput.value.toLowerCase().trim();
 
-    // Show overlay if query matches text or any tag
-    overlay.style.display = (text.includes(query) || tags.includes(query)) ? 'block' : 'none';
-  });
-}
+    if (!query) {
+      // Hide all overlays if input is empty
+      overlays.forEach(overlay => overlay.style.display = 'none');
+      return;
+    }
 
-// Optional: show all overlays if search input is cleared
-document.getElementById('searchInput').addEventListener('input', (e) => {
-  if (!e.target.value.trim()) {
-    document.querySelectorAll('.overlay').forEach(overlay => overlay.style.display = 'block');
+    overlays.forEach(overlay => {
+      const overlayContent = overlay.querySelector('.overlay-content');
+      const text = overlayContent ? overlayContent.textContent.toLowerCase() : '';
+      const tags = overlay.dataset.tags ? overlay.dataset.tags.toLowerCase() : '';
+
+      // Show overlay if query matches text or tags
+      overlay.style.display = (text.includes(query) || tags.includes(query)) ? 'flex' : 'none';
+    });
   }
+
+  // Attach search on button click
+  document.querySelector('.nav-search button').addEventListener('click', searchCards);
+
+  // Optional: search on Enter key
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') searchCards();
+  });
+
+  // Optional: hide overlays when search input is cleared
+  searchInput.addEventListener('input', (e) => {
+    if (!e.target.value.trim()) {
+      overlays.forEach(overlay => overlay.style.display = 'none');
+    }
+  });
 });
 </script>
   

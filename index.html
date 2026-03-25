@@ -46,51 +46,46 @@ body {
 }
 
 /* NAV */
+/* NAV CONTAINER */
 nav {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap; /* IMPORTANT */
+  flex-wrap: wrap;
 }
 
+/* ALL LINKS */
 nav a {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.15);  /* subtle white overlay */
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 12px;
-  white-space: nowrap;
   text-decoration: none;
-  color: #2A2A2A;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: #2A2A2A;   /* match your logo text */
+  transition: background 0.2s, transform 0.2s;
 }
 
 nav a:hover {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.3);
   transform: translateY(-1px);
 }
 
-/* Make the Contact button stand out */
-nav a[href="#contact"] {
-  background: #FFD93D;       /* solid April yellow */
+/* CONTACT BUTTON SPECIAL */
+nav a.contact-btn {
+  background: rgba(200, 210, 245, 0.3); /* soft pastel blue from logo */
   color: #2A2A2A;
   font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 8px;
-  box-shadow: 1px 2px 4px rgba(0,0,0,0.12);
-  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
-nav a[href="#contact"]:hover {
-  background: #FFE57F;       /* lighter yellow on hover */
-  transform: translateY(-2px);
-  box-shadow: 2px 4px 6px rgba(0,0,0,0.15);
+nav a.contact-btn:hover {
+  background: rgba(200, 210, 245, 0.5);
 }
-    
-/* ===== NAV SEARCH BAR ===== */
+
+/* NAV SEARCH BAR */
 .nav-search {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-left: 10px; /* small spacing from nav links */
+  margin-left: 10px;
 }
 
 .nav-search input {
@@ -100,65 +95,49 @@ nav a[href="#contact"]:hover {
   font-size: 12px;
   outline: none;
   width: 150px;
-  transition: all 0.2s ease;
-}
-
-.nav-search input:focus {
-  border-color: #FFD93D; /* highlight with April yellow */
-  background-color: rgba(255, 245, 186, 0.2); /* soft pastel hint */
 }
 
 .nav-search button {
-  background: #FFD93D; /* soft April yellow */
-  border: none;
   padding: 6px 10px;
-  cursor: pointer;
-  font-size: 12px;
+  border: 2px solid rgba(0,0,0,0.25);
   border-radius: 6px;
-  transition: all 0.2s ease;
+  background: rgba(200, 210, 245, 0.3); /* match logo color */
+  cursor: pointer;
 }
 
 .nav-search button:hover {
-  background: #FFE57F; /* lighter hover */
+  background: rgba(200, 210, 245, 0.5);
 }
 
 /* MOBILE ADJUSTMENTS */
 @media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 16px;
+  }
 
-    /* Stack nav + search bar vertically */
-    .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 8px 16px;
-    }
+  nav {
+    width: 100%;
+    gap: 6px;
+  }
 
-    /* Nav full width, wrap links */
-    nav {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
+  .nav-search {
+    width: 100%;
+    margin-left: 0;
+  }
 
-    /* Search bar full width, but keep logo size */
-    .nav-search {
-        width: 100%;
-        justify-content: flex-start;
-        margin-left: 0;
-        gap: 6px;
-    }
+  .nav-search input {
+    width: 70%;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
 
-    .nav-search input {
-        width: 70%;
-        font-size: 11px;
-        padding: 5px 8px;
-    }
-
-    .nav-search button {
-        font-size: 11px;
-        padding: 5px 8px;
-    }
+  .nav-search button {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
 }
     
     /* ===== MOBILE FIRST SAFETY NET ===== */
@@ -638,7 +617,7 @@ img {
     <img src="IMG_7560.jpg" alt="RaeRoutes Logo" class="site-logo">
 
     <nav>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="contact-btn">Contact</a>
     </nav>
 
     <!-- SEARCH BAR -->
@@ -947,30 +926,27 @@ function openOverlay(id){ document.getElementById(id).style.display='flex'; }
 function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.style.display='none'); }
 </script>
     
-   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('searchInput');
+ <script>
+       function searchCards() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
   const categoryCards = document.querySelectorAll('.category-scroll .card');
 
-  // Define the function so your button can call it
-  window.searchCards = () => {
-    const query = searchInput.value.toLowerCase().trim();
+  if (!categoryCards.length) return; // stop if no cards found
 
-    categoryCards.forEach(card => {
-      const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(query) ? 'block' : 'none';
-    });
-  };
-
-  // Optional: also allow hitting Enter to search
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      searchCards();
-    }
+  categoryCards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(query) ? 'block' : 'none';
   });
+}
+
+// Optional: show all cards if search input cleared
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  if (!e.target.value.trim()) {
+    document.querySelectorAll('.category-scroll .card').forEach(card => card.style.display = 'block');
+  }
 });
-</script>
+</script> 
+
   
 </body>
 </html>

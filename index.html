@@ -13,7 +13,7 @@ body {
     padding: 0;
 
     /* Scrapbook-inspired background */
-   background: linear-gradient(135deg, #EAF7F0, #DDF3E8); /* soft mint gradient */
+   background: background: linear-gradient(135deg, #FFF0F5, #E3D4FD); /* soft pink + lavender */
     /* Optional: subtle paper texture overlay */
     /* background-image: url('scrapbook-texture.png'); */
     background-size: cover;
@@ -114,7 +114,7 @@ img {
 /* ===== HERO (MOBILE FIRST) ===== */
 .hero-wrapper {
   padding: 12px;
-  background: linear-gradient(135deg, #F6FBEF, #E2F4E9);
+  background: background: linear-gradient(135deg, #FFF0F5, #E3D4FD); /* soft pink + lavender */
 }
 
 .hero-card {
@@ -255,7 +255,7 @@ img {
         0 12px 26px rgba(0,0,0,0.10);
 }
 
-/* ===== SCRAPBOOK VALENTINE TAPE ===== */
+/* ===== SCRAPBOOK APRIL TAPE ===== */
 .card::before,
 .overlay-content::before {
     content: "";
@@ -269,11 +269,15 @@ img {
     z-index: 2;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 
-    /* hearts pattern only */
-   background-color: #CDEBDD; 
-  background-image: radial-gradient(circle at 4px 4px, #9FD8C2 2px, transparent 2px);
-    background-size: 12px 12px; /* spacing of hearts */
-    background-repeat: repeat;
+    /* spring yellow stripe pattern */
+    background-color: #FFF5BA; /* soft yellow base */
+    background-image: repeating-linear-gradient(
+        45deg,
+        #FFF5BA,
+        #FFF5BA 6px,
+        #FFD93D 6px,
+        #FFD93D 12px
+    );
 }
 
 /* ===== CARD ENTRANCE ANIMATION ===== */
@@ -341,7 +345,7 @@ img {
     font-size: 14px;
 }
 
-/* ===== SCRAPBOOK VALENTINE TAPE ON OVERLAYS ===== */
+/* ===== SCRAPBOOK APRIL TAPE ON OVERLAYS ===== */
 .overlay-content::before {
     content: "";
     position: absolute;
@@ -350,16 +354,19 @@ img {
     transform: translateX(-50%) rotate(-3deg);
     width: 90px;
     height: 20px;
-    background: repeating-linear-gradient(
-        45deg,
-        #CDEBDD,
-        #CDEBDD 6px,
-        #9FD8C2 6px,
-        #9FD8C2 12px
-    );
     border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     z-index: 2;
+
+    /* spring yellow stripe pattern */
+    background-color: #FFF5BA; /* soft yellow base */
+    background-image: repeating-linear-gradient(
+        45deg,
+        #FFF5BA,
+        #FFF5BA 6px,
+        #FFD93D 6px,
+        #FFD93D 12px
+    );
 }
 
 .overlay-content h3 {
@@ -570,31 +577,33 @@ img {
 <div id="nightlife" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🎉 March Nightlife & Party Scene <span class="emoji-sparkle">✨</span></h3>
-    <p>Spring Break • Festivals • DJ Weekends • Cultural Celebrations</p>
+    <h3>🎉 April Nightlife & Party Scene <span class="emoji-sparkle">✨</span></h3>
+    <p>Spring Festivals • Desert Raves • Pool Parties • Beach Energy</p>
 
-    <h4>Spring Break Takeovers</h4>
-    <div class="city">• Miami Beach, FL: Spring Break Mega-Weekends (all March) — pool parties, LIV & Story headliners</div>
-    <div class="city">• Las Vegas, NV: Spring DJ Residencies at Zouk, Omnia, Hakkasan & Encore Beach Club</div>
-    <div class="city">• Cancun, MX: Hotel Zone Spring Break beach festivals & EDM nights</div>
-    <div class="city">• Scottsdale, AZ: Old Town Spring Break nightlife surge</div>
+    <h4>Spring Festival Takeovers</h4>
+    <div class="city">• Indio, CA: Coachella Valley Music & Arts Festival — festival weekends + nearby experience add-ons</div>
+    <div class="city">• Fort Worth, TX: Ubbi Dubbi Festival — major EDM takeover + ticket packages</div>
+    <div class="city">• Orlando, FL: Forbidden Kingdom — bass festival + multi-day event access</div>
+    <div class="city">• Las Vegas, NV: Pool party season launch + VIP daybeds & nightclub entry options</div>
 
-    <h4>Major March Festivals</h4>
-    <div class="city">• Austin, TX: SXSW Music Festival (mid-March) — concerts, pop-ups & late-night showcases</div>
-    <div class="city">• Miami, FL: Ultra Music Festival (late March) — global EDM weekend</div>
-    <div class="city">• New Orleans, LA: Mardi Gras season closing events & Bourbon Street parties (early March)</div>
-    <div class="city">• Savannah, GA: St. Patrick’s Day Festival (March 17) massive downtown celebration</div>
+    <h4>Major April Festivals</h4>
+    <div class="city">• New Orleans, LA: French Quarter Festival — live music + guided nightlife & bar experiences</div>
+    <div class="city">• Miami, FL: Miami Beach Pride — beach parties + hosted club entry experiences</div>
+    <div class="city">• Austin, TX: Fusebox Festival — immersive shows + ticketed performances</div>
+    <div class="city">• Phoenix, AZ: PHXLIGHTS Festival — desert EDM + event passes</div>
 
     <h4>Culture & Party Weekends</h4>
-    <div class="city">• Chicago, IL: St. Patrick’s Day River Dye + bar crawls (mid-March)</div>
-    <div class="city">• Nashville, TN: Broadway rooftop DJ weekends (all March)</div>
-    <div class="city">• Los Angeles, CA: Warehouse rave weekends + Hollywood club residencies</div>
-    <div class="city">• Houston, TX: RodeoHouston concert after-parties (through late March)</div>
+    <div class="city">• San Antonio, TX: Fiesta San Antonio — parades + cultural tours & night events</div>
+    <div class="city">• Nashville, TN: Broadway nightlife + guided bar crawls & live music tours</div>
+    <div class="city">• Los Angeles, CA: Warehouse raves + ticketed nightlife experiences</div>
+    <div class="city">• Atlanta, GA: Dogwood Festival weekend + local event access</div>
 
     <h4>Beach & Rooftop Energy</h4>
-    <div class="city">• San Diego, CA: Pacific Beach day parties & Gaslamp nightlife</div>
-    <div class="city">• Tampa, FL: Spring waterfront bar crawls</div>
-    <div class="city">• Fort Lauderdale, FL: Beachfront DJ series</div>
+    <div class="city">• San Diego, CA: Gaslamp nightlife + rooftop cinema & bar crawl experiences</div>
+    <div class="city">• Tampa, FL: Waterfront nightlife + sunset party cruises</div>
+    <div class="city">• Fort Lauderdale, FL: Beach parties + festival event access</div>
+
+    <p><em>Find the exact parties, passes, and nightlife experiences listed above — all ready to book</em></p>
 
     <a class="cta-btn secondary" href="https://damonycasegura.goldentickets.com" target="_blank">
       Find Experiences
@@ -606,38 +615,35 @@ img {
 <div id="sports" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🏀 March Sports & Action <span class="emoji-sparkle">⚡</span></h3>
-    <p>March Madness • Racing • Fight Nights • Spring Training • Global Sports</p>
+    <h3>🏀 April Sports & Action <span class="emoji-sparkle">⚡</span></h3>
+    <p>The Masters • MLB Openers • Fight Nights • Playoffs</p>
 
     <h4>Championship Energy</h4>
-    <div class="city">• Nationwide: NCAA March Madness (mid–late March) — tournament games across host cities</div>
-    <div class="city">• Conference Basketball Tournaments (early March) — SEC, Big Ten, ACC & more</div>
-    <div class="city">• NHL Regular Season Push — playoff race intensifies</div>
-    <div class="city">• NBA Regular Season Clutch Games — final playoff positioning</div>
+    <div class="city">• Augusta, GA: The Masters Tournament — tournament passes & hospitality packages</div>
+    <div class="city">• Indianapolis, IN: NCAA Men’s Final Four — ticketed games & fan experiences</div>
+    <div class="city">• Boston, MA: Boston Marathon — city-day events & viewing packages</div>
+    <div class="city">• Nationwide: NHL & NBA Playoff Push — tickets & premium seating options</div>
 
     <h4>Baseball Is Back</h4>
-    <div class="city">• Phoenix, AZ: MLB Cactus League Spring Training (all March)</div>
-    <div class="city">• Tampa & Clearwater, FL: Grapefruit League Spring Training</div>
-    <div class="city">• Opening Day Celebrations (late March in select cities)</div>
+    <div class="city">• Nationwide: MLB Regular Season — stadium tickets for peak Opening Month energy</div>
+    <div class="city">• Chicago, IL: Wrigley Field home stands — pre-booked seating & guided tours</div>
+    <div class="city">• NYC, NY: Yankee Stadium & Citi Field — rivalry weekend tickets</div>
 
     <h4>Racing & Global Events</h4>
-    <div class="city">• Formula 1 Season Opener (early March international circuit)</div>
-    <div class="city">• NASCAR Cup Series Spring Races</div>
-    <div class="city">• St. Petersburg, FL: Firestone Grand Prix of St. Petersburg (early March)</div>
-    <div class="city">• The Players Championship – Ponte Vedra Beach, FL (mid-March)</div>
+    <div class="city">• Long Beach, CA: Acura Grand Prix — street circuit tickets & paddock experiences</div>
+    <div class="city">• Austin, TX: MotoGP Grand Prix — grandstand passes & guided tours</div>
+    <div class="city">• Nationwide: NASCAR Cup Series — short-track race tickets & pit experiences</div>
 
     <h4>Fight Nights & Live Action</h4>
-    <div class="city">• Las Vegas, NV: UFC Fight Nights & Championship Cards</div>
-    <div class="city">• Nationwide: WWE Premium Live Events & SmackDown/Road to WrestleMania</div>
-    <div class="city">• Major Boxing Title Fights (select March weekends)</div>
+    <div class="city">• Las Vegas, NV: WrestleMania 42 — stadium tickets & VIP packages</div>
+    <div class="city">• Las Vegas, NV: UFC Fight Nights — arena tickets & premium experiences</div>
+    <div class="city">• Nationwide: WWE Raw & SmackDown tours — ticketed events & meet & greets</div>
 
     <h4>Soccer & International Play</h4>
-    <div class="city">• MLS Regular Season (nationwide)</div>
-    <div class="city">• International Soccer Friendlies & Qualifiers (late March FIFA window)</div>
+    <div class="city">• Nationwide: MLS Regular Season — match tickets in top cities</div>
+    <div class="city">• International: CONCACAF Champions Cup — late-round match tickets</div>
 
-    <h4>Winter Sports Finale</h4>
-    <div class="city">• Aspen, CO: Late-season ski & snowboard events</div>
-    <div class="city">• Park City, UT: Peak snow weekends & terrain park competitions</div>
+    <p><em>Browse games, tickets, and fan experiences available to book now</em></p>
 
     <a class="cta-btn primary" href="https://damonycasegura.goldentickets.com" target="_blank">
       Find Games
@@ -649,36 +655,29 @@ img {
 <div id="shows" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🎭 March Shows & Entertainment <span class="emoji-sparkle">🎬</span></h3>
-    <p>Broadway • Touring Musicals • Vegas Residencies • Immersive Art • Comedy</p>
+    <h3>🎭 April Shows & Entertainment <span class="emoji-sparkle">🎬</span></h3>
+    <p>Broadway • Tours • Vegas Residencies • Comedy</p>
 
     <h4>Broadway & Touring Productions</h4>
-    <div class="city">• New York, NY: Spring Broadway season in full swing — long-running hits + new March previews</div>
-    <div class="city">• Nationwide: Hamilton touring productions (select March cities)</div>
-    <div class="city">• Nationwide: Wicked national tour (major U.S. stops)</div>
-    <div class="city">• Nationwide: Disney’s The Lion King tour dates</div>
-    <div class="city">• Major Cities: Moulin Rouge! The Musical touring run</div>
+    <div class="city">• New York, NY: Broadway shows + pre-booked premium seating options</div>
+    <div class="city">• Nationwide: Funny Girl tour stops + ticket availability</div>
+    <div class="city">• Nationwide: Beetlejuice The Musical + touring show tickets</div>
 
     <h4>Las Vegas Residency Season</h4>
-    <div class="city">• Las Vegas, NV: Headliner residencies at Caesars Palace & MGM Grand</div>
-    <div class="city">• Las Vegas, NV: Cirque du Soleil productions (O, KA, Mystère, Michael Jackson ONE)</div>
-    <div class="city">• Las Vegas, NV: Comedy club headline weekends</div>
+    <div class="city">• Las Vegas, NV: Headliner residencies + Sphere experiences</div>
+    <div class="city">• Las Vegas, NV: Cirque du Soleil + skip-the-line tickets</div>
+    <div class="city">• Las Vegas, NV: Comedy clubs + reserved seating options</div>
 
     <h4>Immersive & Interactive Experiences</h4>
-    <div class="city">• Denver, CO: Meow Wolf — Convergence Station</div>
-    <div class="city">• Santa Fe, NM: Meow Wolf — House of Eternal Return</div>
-    <div class="city">• New York, NY: Immersive theater pop-ups & interactive art installations</div>
-    <div class="city">• Los Angeles, CA: Secret warehouse theater & experimental stage shows</div>
+    <div class="city">• New York, NY: Immersive exhibits + timed-entry experiences</div>
+    <div class="city">• Denver, CO: Meow Wolf — Convergence Station entry tickets</div>
+    <div class="city">• Los Angeles, CA: Interactive theater + ticketed pop-ups</div>
 
     <h4>Comedy & Live Entertainment</h4>
-    <div class="city">• Nationwide: Spring stand-up comedy tours (arena & theater stops)</div>
-    <div class="city">• Austin, TX: SXSW comedy showcases (mid-March)</div>
-    <div class="city">• Chicago, IL: Second City live performances</div>
+    <div class="city">• Nationwide: Arena comedy tours + ticket booking</div>
+    <div class="city">• Chicago, IL: Second City shows + reserved seating</div>
 
-    <h4>Seasonal & Cultural Shows</h4>
-    <div class="city">• Savannah, GA: St. Patrick’s Day stage performances & live Irish dance</div>
-    <div class="city">• Washington, D.C.: National Cherry Blossom Festival performances (late March)</div>
-    <div class="city">• Orlando, FL: Theme park spring break live shows & parades</div>
+    <p><em>Browse shows, performances, and entertainment tickets available now</em></p>
 
     <a class="cta-btn primary" href="https://www.viator.com/?pid=P00011640&uid=U00716568&mcid=58086&currency=USD" target="_blank">
       Find Shows
@@ -690,32 +689,22 @@ img {
 <div id="festivals" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🌸 March Festivals & Seasonal Fun <span class="emoji-sparkle">🎉</span></h3>
-    <p>Parades • Cultural Festivals • Spring Celebrations • Food & Music Events</p>
+    <h3>🌸 April Festivals & Seasonal Fun <span class="emoji-sparkle">🎉</span></h3>
+    <p>Parades • Bloom Peaks • Fiestas • Food & Music</p>
 
-    <h4>Signature March Festivals</h4>
-    <div class="city">• Austin, TX: SXSW Festival (mid-March) music, film & interactive takeover</div>
-    <div class="city">• Miami, FL: Ultra Music Festival (late March) global EDM weekend</div>
-    <div class="city">• Houston, TX: Houston Livestock Show & Rodeo (through late March)</div>
-    <div class="city">• New Orleans, LA: Super Sunday & early March Mardi Gras parades (select years)</div>
-
-    <h4>St. Patrick’s Day Celebrations (March 17)</h4>
-    <div class="city">• Savannah, GA: One of the largest St. Patrick’s Day parades in the U.S.</div>
-    <div class="city">• Chicago, IL: Chicago River Dyeing + massive downtown celebration</div>
-    <div class="city">• Boston, MA: South Boston St. Patrick’s Day Parade</div>
-    <div class="city">• New York, NY: Fifth Avenue St. Patrick’s Day Parade</div>
-    <div class="city">• Dublin, Ireland: St. Patrick’s Festival weeklong celebration</div>
+    <h4>Signature April Festivals</h4>
+    <div class="city">• San Antonio, TX: Fiesta San Antonio — parade & cultural experience packages</div>
+    <div class="city">• Indio, CA: Stagecoach Festival — festival passes & add-on activities</div>
+    <div class="city">• Washington, D.C.: National Cherry Blossom Festival — guided city tours & Petalpalooza events</div>
+    <div class="city">• Louisville, KY: Kentucky Derby Festival — premium event tickets</div>
 
     <h4>Spring Bloom & Cultural Festivals</h4>
-    <div class="city">• Washington, D.C.: National Cherry Blossom Festival (late March kickoff)</div>
-    <div class="city">• Dallas, TX: Dallas Blooms at the Arboretum (through March)</div>
-    <div class="city">• Macon, GA: International Cherry Blossom Festival</div>
-    <div class="city">• San Diego, CA: Cherry Blossom Festival (select March weekends)</div>
+    <div class="city">• Atlanta, GA: Dogwood Festival — ticketed entry & local guided tours</div>
+    <div class="city">• Wilmington, NC: Azalea Festival — city experience packages</div>
+    <div class="city">• Carlsbad, CA: Flower Fields — guided tour & floral experience</div>
+    <div class="city">• Holland, MI: Tulip festivals & garden tour passes</div>
 
-    <h4>Food & Wine Festivals</h4>
-    <div class="city">• Charleston, SC: Charleston Wine + Food Festival (early March)</div>
-    <div class="city">• Tampa Bay, FL: Cuban Sandwich Festival & spring food events</div>
-    <div class="city">• Napa Valley, CA: Spring release wine weekends</div>
+    <p><em>Book festival passes, guided tours, and seasonal experiences today</em></p>
 
     <a class="cta-btn primary" href="https://form.jotform.com/260254006996056" target="_blank">
       Request Festivals
@@ -727,71 +716,51 @@ img {
 <div id="getaways" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🌸 March Getaways & Experiences <span class="emoji-sparkle">🏞️</span></h3>
-    <p>Spring Bloom • Beach Escapes • Scenic Travel • Adventure Season</p>
+    <h3>🏔️ April Getaways & Experiences <span class="emoji-sparkle">🏞️</span></h3>
+    <p>Wildflowers • Scenic Travel • Beach Escapes • Adventure</p>
 
     <h4>Spring Bloom & Nature Trips</h4>
-    <div class="city">• Washington, D.C.: Cherry Blossom season (late March peak)</div>
-    <div class="city">• Macon, GA: Cherry Blossom bloom & spring festival energy</div>
-    <div class="city">• Texas Hill Country: Bluebonnet early bloom drives</div>
-    <div class="city">• Anza-Borrego, CA: Desert wildflower superbloom season</div>
+    <div class="city">• Ennis, TX: Bluebonnet Trail — guided scenic drives & photo tours</div>
+    <div class="city">• Death Valley, CA: Wildflower season + desert tours</div>
+    <div class="city">• Great Smoky Mountains, TN: Spring ephemeral wildflowers + ranger-guided hikes</div>
 
     <h4>Beach & Warm Weather Escapes</h4>
-    <div class="city">• Miami, FL: Spring Break beaches + rooftop pool weekends</div>
-    <div class="city">• Cancun, MX: All-inclusive spring break & turquoise waters</div>
-    <div class="city">• San Diego, CA: La Jolla coastal hikes & mild temps</div>
-    <div class="city">• Scottsdale, AZ: Desert resort pools & Old Town nightlife</div>
+    <div class="city">• Carlsbad, CA: Coastal flower field walks + beach resort stays</div>
+    <div class="city">• Charleston, SC: Waterfront escapes + harbor cruises & tours</div>
+    <div class="city">• Key West, FL: Island escapes + snorkeling & sunset cruise experiences</div>
 
-    <h4>Romantic & Scenic Trips</h4>
-    <div class="city">• Savannah, GA: Moss-draped streets & boutique B&B escapes</div>
-    <div class="city">• Sedona, AZ: Red rock hikes & spa retreats</div>
-    <div class="city">• Napa Valley, CA: Spring vineyard views & wine tastings</div>
-    <div class="city">• Charleston, SC: Historic charm + waterfront sunsets</div>
+    <h4>Adventure & Outdoor Season</h4>
+    <div class="city">• Grand Canyon, AZ: South Rim hiking + helicopter & guided tours</div>
+    <div class="city">• Moab, UT: Arches & Canyonlands — mountain biking & Jeep tours</div>
+    <div class="city">• Mackinac Island, MI: Seasonal opening + carriage tours</div>
 
-    <h4>Adventure & Outdoor Season Kickoff</h4>
-    <div class="city">• Moab, UT: Arches & Canyonlands hiking season begins</div>
-    <div class="city">• Zion NP, UT: Cooler hiking temps before peak summer crowds</div>
-    <div class="city">• Aspen, CO: Late-season ski + après weekends</div>
-    <div class="city">• Lake Tahoe, CA/NV: Snow + sunshine crossover trips</div>
+    <p><em>Find tours, excursions, and getaway experiences ready to book</em></p>
 
     <a class="cta-btn primary" href="https://form.jotform.com/252610303961045" target="_blank">
       Plan Getaway
     </a>
   </div>
 </div>
-    
+
 <!-- MUSIC -->
 <div id="music" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🎶 March Music: Headliners & Tours <span class="emoji-sparkle">🎤</span></h3>
-    <p>Pop • Rock • R&B • Latin • K-Pop • EDM • Arena Tours</p>
+    <h3>🎶 April Music: Headliners & Tours <span class="emoji-sparkle">🎤</span></h3>
+    <p>Pop • Country • Rock • Festival Headliners</p>
 
-    <h4>March Arena & Stadium Tours</h4>
-    <div class="city">• Olivia Rodrigo: GUTS World Tour spring arena dates</div>
-    <div class="city">• SZA: SOS Tour spring leg</div>
-    <div class="city">• Luke Combs: Stadium tour launch (late March)</div>
-    <div class="city">• Zach Bryan: With Heaven On Tour arena run</div>
-    <div class="city">• TWICE: World Tour U.S. stops (select March cities)</div>
-    <div class="city">• Shakira: Las Mujeres Ya No Lloran Tour North America dates</div>
+    <h4>April Arena & Stadium Tours</h4>
+    <div class="city">• Sabrina Carpenter: Arena dates + pre-booked tickets</div>
+    <div class="city">• Justin Bieber: Spring tour dates + ticket options</div>
+    <div class="city">• Lainey Wilson: Country stadium run + VIP experiences</div>
+    <div class="city">• Zach Bryan: Quittin Time Tour + outdoor venue tickets</div>
 
-    <h4>Alternative & Rock</h4>
-    <div class="city">• Nine Inch Nails: Spring North America run</div>
-    <div class="city">• The Maine: Spring tour dates</div>
-    <div class="city">• Jeff Tweedy: Solo spring shows</div>
-    <div class="city">• Lacuna Coil: Sleepless Empire Tour</div>
+    <h4>Festival Headliners</h4>
+    <div class="city">• Coachella: Karol G, Post Malone, Lana Del Rey — festival passes & add-ons</div>
+    <div class="city">• Stagecoach: Cody Johnson & Jelly Roll — tickets & experiences</div>
+    <div class="city">• Jazz Fest: Early weekends in New Orleans + headliner passes</div>
 
-    <h4>R&B, Hip-Hop & Soul</h4>
-    <div class="city">• Miguel: Select March live performances</div>
-    <div class="city">• DVSN: Theater tour stops</div>
-    <div class="city">• Ashnikko: Spring arena dates</div>
-    <div class="city">• Loyle Carner: U.S. shows</div>
-
-    <h4>Festival Headliners & Party Weekends</h4>
-    <div class="city">• Austin, TX: SXSW Music Festival showcases (mid-March)</div>
-    <div class="city">• Miami, FL: Ultra Music Festival (late March)</div>
-    <div class="city">• Houston, TX: RodeoHouston concert series (through March)</div>
-    <div class="city">• Las Vegas, NV: DJ residencies at Zouk, Omnia & Hakkasan</div>
+    <p><em>Book concert and festival experiences now</em></p>
 
     <a class="cta-btn primary" href="https://damonycasegura.goldentickets.com" target="_blank">
       Browse Headliners
@@ -803,26 +772,27 @@ img {
 <div id="jazz" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🎷 March Jazz & Chill Nights <span class="emoji-sparkle">🎶</span></h3>
+    <h3>🎷 April Jazz & Chill Nights <span class="emoji-sparkle">🎶</span></h3>
     <p>Jazz Clubs • Soul • Classical • Candlelight • Intimate Evenings</p>
 
     <h4>Iconic Jazz Cities</h4>
-    <div class="city">• New Orleans, LA: Preservation Hall nightly sets + Frenchmen Street jazz clubs</div>
-    <div class="city">• New York, NY: Village Vanguard spring residencies</div>
-    <div class="city">• Chicago, IL: The Green Mill late-night jazz sessions</div>
-    <div class="city">• Kansas City, MO: 18th & Vine Jazz District live weekends</div>
+    <div class="city">• New Orleans, LA: Preservation Hall + Frenchmen Street jazz tours</div>
+    <div class="city">• New York, NY: Village Vanguard spring residencies + ticket packages</div>
+    <div class="city">• Chicago, IL: Green Mill late-night jazz + guided experiences</div>
+    <div class="city">• Kansas City, MO: 18th & Vine Jazz District weekends + entry passes</div>
 
-    <h4>March Jazz Festivals & Showcases</h4>
-    <div class="city">• Savannah, GA: Savannah Music Festival (late March kickoff)</div>
-    <div class="city">• Austin, TX: SXSW jazz & soul showcases (mid-March)</div>
-    <div class="city">• San Diego, CA: Spring jazz concert weekends</div>
-    <div class="city">• Washington, D.C.: Kennedy Center jazz performances</div>
+    <h4>Jazz Festivals & Showcases</h4>
+    <div class="city">• Savannah, GA: Savannah Music Festival — festival passes & evening shows</div>
+    <div class="city">• Austin, TX: SXSW jazz & soul showcases — tickets available</div>
+    <div class="city">• San Diego, CA: Spring jazz concerts — reserved seating</div>
+    <div class="city">• Washington, D.C.: Kennedy Center jazz performances + entry tickets</div>
 
     <h4>Soulful & Candlelight Nights</h4>
-    <div class="city">• Los Angeles, CA: Catalina Jazz Club headline weekends</div>
-    <div class="city">• Nationwide: Candlelight tribute concerts (orchestra & jazz tributes)</div>
-    <div class="city">• Seattle, WA: The Triple Door — smooth jazz + dinner shows</div>
-    <div class="city">• Boston, MA: Boston Pops spring performances</div>
+    <div class="city">• Los Angeles, CA: Catalina Jazz Club weekends — bookable shows</div>
+    <div class="city">• Seattle, WA: The Triple Door — dinner & jazz experiences</div>
+    <div class="city">• Boston, MA: Boston Pops spring performances + ticketed events</div>
+
+    <p><em>Find jazz & chill experiences ready to book</em></p>
 
     <a class="cta-btn primary" href="https://damonycasegura.goldentickets.com" target="_blank">
       Find Chill Shows
@@ -834,32 +804,21 @@ img {
 <div id="food" class="overlay">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
-    <h3>🍴 March Foodie Experiences <span class="emoji-sparkle">🍷</span></h3>
-    <p>Food Festivals • Wine Weekends • Street Food • Culinary Travel</p>
+    <h3>🍴 April Foodie Experiences <span class="emoji-sparkle">🍷</span></h3>
+    <p>Food Festivals • Wine • Culinary Travel • Tastings</p>
 
-    <h4>March Food Festivals</h4>
-    <div class="city">• Charleston, SC: Charleston Wine + Food Festival (early March)</div>
-    <div class="city">• Houston, TX: RodeoHouston food halls & Texas BBQ showcases (through March)</div>
-    <div class="city">• Savannah, GA: St. Patrick’s Day Irish pubs & festival food scene</div>
-    <div class="city">• Tampa Bay, FL: Cuban Sandwich Festival & spring food events</div>
+    <h4>April Food Festivals</h4>
+    <div class="city">• Pebble Beach, CA: Food & Wine — tasting access & VIP packages</div>
+    <div class="city">• Nashville, TN: Bourbon & Bubbles Fest + event entry</div>
+    <div class="city">• Columbia, SC: Food & Wine Festival — culinary experiences & tours</div>
+    <div class="city">• Poteet, TX: Strawberry Festival — local experience bookings</div>
 
-    <h4>Spring Wine & Tasting Weekends</h4>
-    <div class="city">• Napa Valley, CA: Spring release tastings & vineyard tours</div>
-    <div class="city">• Sonoma, CA: Barrel tastings & seasonal pairings</div>
-    <div class="city">• Texas Hill Country: Winery trail road trips</div>
-    <div class="city">• Willamette Valley, OR: Spring Pinot tasting weekends</div>
+    <h4>Spring Wine & Tastings</h4>
+    <div class="city">• Napa & Sonoma, CA: Vineyard tours & wine tastings</div>
+    <div class="city">• Willamette Valley, OR: Spring wine releases & guided tastings</div>
+    <div class="city">• Texas Hill Country: Wine & wildflower tour experiences</div>
 
-    <h4>City Food Tours</h4>
-    <div class="city">• Chicago, IL: West Loop food & speakeasy tour</div>
-    <div class="city">• New Orleans, LA: French Quarter food crawl & beignet stops</div>
-    <div class="city">• San Diego, CA: Taco & Tequila trail</div>
-    <div class="city">• Mexico City, MX: Roma Norte street food crawl</div>
-
-    <h4>Seasonal Culinary Travel</h4>
-    <div class="city">• Washington, D.C.: Cherry Blossom-themed afternoon teas & tasting menus</div>
-    <div class="city">• Miami, FL: Rooftop brunch season + waterfront dining</div>
-    <div class="city">• Las Vegas, NV: Celebrity chef restaurant weekends</div>
-    <div class="city">• Scottsdale, AZ: Desert patio dining & sunset happy hours</div>
+    <p><em>Explore food tours, tastings, and culinary experiences you can book now</em></p>
 
     <a class="cta-btn primary" href="https://www.viator.com/?pid=P00011640&uid=U00716568&mcid=58086&currency=USD" target="_blank">
       Browse Tours & More

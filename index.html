@@ -929,25 +929,27 @@ function openOverlay(id){ document.getElementById(id).style.display='flex'; }
 function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.style.display='none'); }
 </script>
     
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const searchForm = document.querySelector('.nav-search');
-  const searchInput = searchForm.querySelector('input');
+  const searchInput = document.getElementById('searchInput');
   const categoryCards = document.querySelectorAll('.category-scroll .card');
 
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // prevent page refresh
-
+  // Define the function so your button can call it
+  window.searchCards = () => {
     const query = searchInput.value.toLowerCase().trim();
 
     categoryCards.forEach(card => {
       const text = card.textContent.toLowerCase();
-      if (text.includes(query)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = text.includes(query) ? 'block' : 'none';
     });
+  };
+
+  // Optional: also allow hitting Enter to search
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      searchCards();
+    }
   });
 });
 </script>

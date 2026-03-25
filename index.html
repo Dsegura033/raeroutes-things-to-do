@@ -49,24 +49,42 @@ body {
 nav {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;      /* IMPORTANT */
+  flex-wrap: wrap; /* IMPORTANT */
 }
 
 nav a {
   background: rgba(255,255,255,0.3);
-  padding: 4px 8px;     /* smaller on mobile */
+  padding: 4px 8px;
   border-radius: 6px;
-  font-size: 12px;      /* mobile size */
-  white-space: nowrap; /* prevents tall wrapping */
+  font-size: 12px;
+  white-space: nowrap;
   text-decoration: none;
   color: #2A2A2A;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 nav a:hover {
   background: rgba(255,255,255,0.5);
   transform: translateY(-1px);
 }
+
+/* Make the Contact button stand out */
+nav a[href="#contact"] {
+  background: #FFD93D;       /* solid April yellow */
+  color: #2A2A2A;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.12);
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+nav a[href="#contact"]:hover {
+  background: #FFE57F;       /* lighter yellow on hover */
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 6px rgba(0,0,0,0.15);
+}
+    
 /* ===== NAV SEARCH BAR ===== */
 .nav-search {
   display: flex;

@@ -650,12 +650,13 @@ img {
 </div>
 
 <!-- NIGHTLIFE -->
-<div id="nightlife" class="overlay">
+<div id="nightlife" class="overlay" data-tags="nightlife, party, festival, pool, rave, beach, music, desert, spring, coachella, ubbi dubbi, miami, las vegas, san diego">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🎉 April Nightlife & Party Scene <span class="emoji-sparkle">✨</span></h3>
     <p>Spring Festivals • Desert Raves • Pool Parties • Beach Energy</p>
-
+  </div>
+</div>
     <h4>Spring Festival Takeovers</h4>
     <div class="city">• Indio, CA: Coachella Valley Music & Arts Festival — festival weekends + nearby experience add-ons</div>
     <div class="city">• Fort Worth, TX: Ubbi Dubbi Festival — major EDM takeover + ticket packages</div>
@@ -688,11 +689,13 @@ img {
 </div>
 
 <!-- SPORTS -->
-<div id="sports" class="overlay">
+<div id="sports" class="overlay" data-tags="sports, basketball, baseball, nfl, nba, soccer, hockey, racing, motogp, nascar, fight, ufc, wrestling, playoffs, championship, arena, tickets">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🏀 April Sports & Action <span class="emoji-sparkle">⚡</span></h3>
     <p>The Masters • MLB Openers • Fight Nights • Playoffs</p>
+  </div>
+</div>
 
     <h4>Championship Energy</h4>
     <div class="city">• Augusta, GA: The Masters Tournament — tournament passes & hospitality packages</div>
@@ -728,7 +731,7 @@ img {
 </div>
 
 <!-- SHOWS -->
-<div id="shows" class="overlay">
+<div id="shows" class="overlay"data-tags="shows, broadway, vegas, comedy, theater, residencies, immersive, interactive, entertainment, performances, tours">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🎭 April Shows & Entertainment <span class="emoji-sparkle">🎬</span></h3>
@@ -762,7 +765,7 @@ img {
 </div>
 
 <!-- FESTIVALS -->
-<div id="festivals" class="overlay">
+<div id="festivals" class="overlay"data-tags="festivals, seasonal, parades, bloom, food, music, cultural, spring, cherry blossom, tulip, stagecoach, fiesta, guided tours">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🌸 April Festivals & Seasonal Fun <span class="emoji-sparkle">🎉</span></h3>
@@ -789,7 +792,7 @@ img {
 </div>
 
 <!-- GETAWAYS -->
-<div id="getaways" class="overlay">
+<div id="getaways" class="overlay"data-tags="getaways, travel, adventure, beach, mountains, scenic, nature, spring, hikes, cruises, islands, outdoors, road trips">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🏔️ April Getaways & Experiences <span class="emoji-sparkle">🏞️</span></h3>
@@ -819,7 +822,7 @@ img {
 </div>
 
 <!-- MUSIC -->
-<div id="music" class="overlay">
+<div id="music" class="overlay"data-tags="music, concert, festival, pop, country, rock, headliners, tour, arena, stadium, coachella, stagecoach, tickets">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🎶 April Music: Headliners & Tours <span class="emoji-sparkle">🎤</span></h3>
@@ -845,7 +848,7 @@ img {
 </div>
 
 <!-- JAZZ -->
-<div id="jazz" class="overlay">
+<div id="jazz" class="overlay"data-tags="jazz, chill, soul, classical, intimate, concerts, clubs, candlelight, new orleans, chicago, seattle, austin, los angeles">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🎷 April Jazz & Chill Nights <span class="emoji-sparkle">🎶</span></h3>
@@ -877,7 +880,7 @@ img {
 </div>
 
 <!-- FOOD -->
-<div id="food" class="overlay">
+<div id="food" class="overlay"data-tags="food, wine, culinary, festival, tasting, tour, gastronomy, vineyard, brewery, chocolate, strawberry, tasting, cooking">
   <div class="overlay-content">
     <span class="close-btn" onclick="closeOverlay()">×</span>
     <h3>🍴 April Foodie Experiences <span class="emoji-sparkle">🍷</span></h3>
@@ -927,26 +930,31 @@ function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.
 </script>
     
  <script>
-       function searchCards() {
+function searchCards() {
   const query = document.getElementById('searchInput').value.toLowerCase().trim();
-  const categoryCards = document.querySelectorAll('.category-scroll .card');
 
-  if (!categoryCards.length) return; // stop if no cards found
+  // Select all overlays (your category sections)
+  const overlays = document.querySelectorAll('.overlay');
 
-  categoryCards.forEach(card => {
-    const text = card.textContent.toLowerCase();
-    card.style.display = text.includes(query) ? 'block' : 'none';
+  if (!overlays.length) return; // stop if no overlays found
+
+  overlays.forEach(overlay => {
+    const overlayContent = overlay.querySelector('.overlay-content');
+    const text = overlayContent ? overlayContent.textContent.toLowerCase() : '';
+    const tags = overlay.dataset.tags ? overlay.dataset.tags.toLowerCase() : '';
+
+    // Show overlay if query matches text or any tag
+    overlay.style.display = (text.includes(query) || tags.includes(query)) ? 'block' : 'none';
   });
 }
 
-// Optional: show all cards if search input cleared
+// Optional: show all overlays if search input is cleared
 document.getElementById('searchInput').addEventListener('input', (e) => {
   if (!e.target.value.trim()) {
-    document.querySelectorAll('.category-scroll .card').forEach(card => card.style.display = 'block');
+    document.querySelectorAll('.overlay').forEach(overlay => overlay.style.display = 'block');
   }
 });
-</script> 
-
+</script>
   
 </body>
 </html>

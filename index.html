@@ -108,6 +108,28 @@ nav a.contact-btn:hover {
 .nav-search button:hover {
   background: rgba(200, 210, 245, 0.5);
 }
+    
+/* SEARCH RESULTS CARDS */
+#search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+#search-results .result-card {
+  background: rgba(200, 210, 245, 0.3); /* subtle logo color */
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1 1 200px; /* responsive width for multiple cards */
+  min-width: 150px;
+  transition: background 0.2s;
+}
+
+#search-results .result-card:hover {
+  background: rgba(200, 210, 245, 0.5);
+}
 
 /* MOBILE ADJUSTMENTS */
 @media (max-width: 768px) {
@@ -625,6 +647,8 @@ img {
       <input type="text" id="searchInput" placeholder="Search activities...">
       <button type="button" onclick="searchCards()">🔍</button>
     </form>
+      <!-- SEARCH RESULTS CARDS -->
+<div id="search-results"></div>
   </div>
 </header>
 
@@ -930,41 +954,52 @@ function closeOverlay(){ document.querySelectorAll('.overlay').forEach(el => el.
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('searchInput');
   const overlays = document.querySelectorAll('.overlay');
+  const resultsContainer = document.getElementById('search-results');
 
-  // Initially hide all overlays if you don't want them visible on page load
+  // Initially hide all overlays
   overlays.forEach(overlay => overlay.style.display = 'none');
 
   function searchCards() {
     const query = searchInput.value.toLowerCase().trim();
 
-    if (!query) {
-      // Hide all overlays if input is empty
-      overlays.forEach(overlay => overlay.style.display = 'none');
-      return;
-    }
+    // Clear previous results
+    resultsContainer.innerHTML = '';
+
+    if (!query) return; // do nothing if input is empty
 
     overlays.forEach(overlay => {
       const overlayContent = overlay.querySelector('.overlay-content');
       const text = overlayContent ? overlayContent.textContent.toLowerCase() : '';
       const tags = overlay.dataset.tags ? overlay.dataset.tags.toLowerCase() : '';
 
-      // Show overlay if query matches text or tags
-      overlay.style.display = (text.includes(query) || tags.includes(query)) ? 'flex' : 'none';
+      if (text.includes(query) || tags.includes(query)) {
+        // Create a mini result card
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.textContent = overlayContent.querySelector('h3')?.textContent || 'View Details';
+        
+        // When clicked, open the overlay
+        card.addEventListener('click', () => {
+          overlay.style.display = 'flex';
+        });
+
+        resultsContainer.appendChild(card);
+      }
     });
   }
 
-  // Attach search on button click
+  // Search on button click
   document.querySelector('.nav-search button').addEventListener('click', searchCards);
 
-  // Optional: search on Enter key
+  // Search on Enter key
   searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') searchCards();
   });
 
-  // Optional: hide overlays when search input is cleared
+  // Clear results when input is cleared
   searchInput.addEventListener('input', (e) => {
     if (!e.target.value.trim()) {
-      overlays.forEach(overlay => overlay.style.display = 'none');
+      resultsContainer.innerHTML = '';
     }
   });
 });
